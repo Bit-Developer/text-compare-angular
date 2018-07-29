@@ -1,12 +1,12 @@
 # Text Compare Tool
-This app is development with Angular 5 and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
+This app is developed with Angular 5 and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
 
 # Function
-This app is used to compare text. All the difference will be displayed in a Monaco Diff Editor with highlighting. It also support different formats, e.g. plant/text, c, java, xml, typescript, etc.
+This app is used to compare text. All the differences are displayed in a Monaco Diff Editor with highlighting. It supports multiple languages, e.g. c, java, xml, typescript, etc.
 ![image](/src/assets/textcompare.png)
 
 # Demo
-[Demo](https://text-compare.netlify.com/) is hosted at netlify.
+The [Live Demo](https://text-compare.netlify.com/) is hosted by Netlify.
 
 # Setup Locally
 ```bash
