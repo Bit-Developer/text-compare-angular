@@ -5,17 +5,17 @@ import {
   Output,
   OnInit
 } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DiffEditorModel } from 'ngx-monaco-editor';
 
 @Component({
-  selector: 'diff',
-  styleUrls: ["./diff.component.css"],
-  templateUrl: "./diff.component.html",
+  selector: 'textcompare',
+  styleUrls: ["./textcompare.component.css"],
+  templateUrl: "./textcompare.component.html",
   encapsulation: ViewEncapsulation.None,
 })
-export class DiffComponent implements OnInit {
+export class TextCompareComponent implements OnInit {
 
   text1 = "";
   text2 = "";

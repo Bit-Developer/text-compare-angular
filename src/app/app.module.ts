@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DiffComponent } from './diff/diff.component';
+import { TextCompareComponent } from './textcompare/textcompare.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MonacoEditorModule, DiffEditorModel } from 'ngx-monaco-editor';
+import { FormsModule } from '@angular/forms';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 // routes
 import { appRoutes } from "./app.route";
@@ -20,12 +20,11 @@ import { appRoutes } from "./app.route";
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    DiffComponent
+    TextCompareComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     MonacoEditorModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
