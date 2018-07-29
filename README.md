@@ -8,8 +8,11 @@ This app is used to compare text. All the difference will be displayed in a Mona
 # Demo
 [Demo](https://text-compare.netlify.com/diff) is hosted at netlify.
 
-# Download Sources
-use git
+# Setup Locally
 ```bash
-git clone https://github.com/jojozhuang/TextCompare.git
+git clone https://github.com/jojozhuang/text-compare.git
+cd text-compare
+npm install
+npm start
 ```
+Access http://localhost:4200/ in web browser and click 'diff' menu, enjoy!
