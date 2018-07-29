@@ -6,7 +6,7 @@ This app is used to compare text. All the difference will be displayed in a Mona
 ![image](/src/assets/textcompare.png)
 
 # Demo
-[Demo](https://text-compare.netlify.com/diff) is hosted at netlify.
+[Demo](https://text-compare.netlify.com/) is hosted at netlify.
 
 # Setup Locally
 ```bash
