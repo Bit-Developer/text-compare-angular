@@ -22,13 +22,12 @@ export class TextCompareComponent implements OnInit {
   isCompared = false;
   
   @Output()
-  selectedLang = "text/plain";
+  selectedLang = "plaintext";
   @Output()
   selectedTheme = "vs";
 
   @Input()
   languages = [
-    "text/plain",
     "bat",
     "c",
     "coffeescript",
@@ -93,17 +92,17 @@ export class TextCompareComponent implements OnInit {
   ];
 
   // input
-  inputOptions = { theme: "vs", language: 'text/plain' };
+  inputOptions = { theme: "vs", language: 'plaintext' };
   // compare, output
-  diffOptions = { theme: "vs", language: "text/plain", readOnly: true, renderSideBySide: true };
+  diffOptions = { theme: "vs", language: "plaintext", readOnly: true, renderSideBySide: true };
   originalModel: DiffEditorModel = {
     code: '',
-    language: 'text/plain' 
+    language: 'plaintext' 
   };
 
   modifiedModel: DiffEditorModel = {
     code: '',
-    language: 'text/plain' 
+    language: 'plaintext' 
   };
 
   public ngOnInit() {
@@ -112,7 +111,6 @@ export class TextCompareComponent implements OnInit {
 
   onChangeLanguage(language) {
     this.inputOptions = Object.assign({}, this.inputOptions, { language: language });
-    //this.diffOptions = Object.assign({}, this.diffOptions, { language: language });
     this.originalModel = Object.assign({}, this.originalModel, { language: language });
     this.modifiedModel = Object.assign({}, this.modifiedModel, { language: language });
   }
