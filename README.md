@@ -27,8 +27,8 @@ docker run --name text-compare-angular -p 8080:80 text-compare-angular
 ```
 Access http://localhost:8080/ in web browser and click 'Text Compare' menu, enjoy!
 
-# Portfolio 
+# Portfolio
 Read portfolio [Text Compare(Angular)](http://jojozhuang.github.io/portfolio/text-compare-angular/) to learn the main functions of this text compare tool.
 
 # Tutorial
-Read tutorial [Building Online Text Compare Tool](http://jojozhuang.github.io/tutorial/angular/building-online-text-compare-tool/) to learn how this text compare tool is built.
+Read tutorial [Building Online Text Compare Tool with Angular](http://jojozhuang.github.io/tutorial/angular/building-online-text-compare-tool-with-angular/) to learn how this text compare tool is built.
