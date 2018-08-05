@@ -7,7 +7,11 @@ This app is used to compare text. All the differences are displayed in a [Monaco
 <kbd>![image](/src/assets/typescript.png)</kbd>
 
 # Demo
-The [Live Demo](https://text-compare.netlify.com/) is hosted by Netlify.
+Two available demos:
+* `Live Demo on Netlify:` <a href="https://text-compare.netlify.com/" target="\_blank">https://text-compare.netlify.com/</a>
+* `Live Demo on Azure:` <a href="https://text-compare.azurewebsites.net/" target="\_blank">https://text-compare.azurewebsites.net/</a>
+
+*Note: The demo websites may be slow when you access them for the first time. Be patient!*
 
 # Setup Locally
 ```bash
