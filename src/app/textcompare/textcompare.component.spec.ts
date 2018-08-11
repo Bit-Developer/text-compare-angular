@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiffComponent } from './diff.component';
+import { TextCompareComponent } from './textcompare.component';
 
-describe('DiffComponent', () => {
-  let component: DiffComponent;
-  let fixture: ComponentFixture<DiffComponent>;
+describe('TextCompareComponent', () => {
+  let component: TextCompareComponent;
+  let fixture: ComponentFixture<TextCompareComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiffComponent ]
+      declarations: [ TextCompareComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DiffComponent);
+    fixture = TestBed.createComponent(TextCompareComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
