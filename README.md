@@ -1,10 +1,17 @@
 # Text Compare Tool
-This app is developed with Angular 5 and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
+This app is used to compare text, built with Angular and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
+<kbd>![image](/src/assets/typescript.png)</kbd>
 
 # Function
-This app is used to compare text. All the differences are displayed in a [Monaco Diff Editor](https://microsoft.github.io/monaco-editor/index.html) with highlighting. It supports multiple languages, e.g. c, java, xml, typescript, etc.
+This app is based on [Monaco Diff Editor](https://microsoft.github.io/monaco-editor/index.html). It supports the following features:
+* Syntax highlighting for 40+ languages, including c, c++, java, javascript, html, typescript, etc.
+* Three editor themes: Visual Studio, Visual Studio Dark and High Contrast Dark.
+* Diff Mode: Side by Side Diff, Inline Diff.
 
-<kbd>![image](/src/assets/typescript.png)</kbd>
+# Technology
+* Frontend Framework: Angular
+* Styling: bootstrap
+* Text Editor: ngx-monaco-editor
 
 # Demo
 Two available demos:
