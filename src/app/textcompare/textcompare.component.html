@@ -1,19 +1,48 @@
 <div class="container-fluid container-diff">
-  <h1>Text Compare</h1>
+  <div class="text-center">
+    <h1>Angular - Text Compare Tool</h1>
+    <p>
+      Built with <a href="https://angular.io/">Angular</a> and
+      <a href="https://microsoft.github.io/monaco-editor/index.html"
+        >Monaco Editor</a
+      >
+    </p>
+  </div>
   <div *ngIf="isCompared" class="row">
     <div class="col-md-12">
       <form class="form-inline" role="form">
         <label for="lang" class="mb-2 mr-sm-2">Language:</label>
-        <select id="lang" name="lang" class="form-control mb-2 mr-sm-2" [(ngModel)]="selectedLang" (change)="onChangeLanguage($event.target.value)">
-          <option *ngFor="let option of languages" [value]="option">{{option}}</option>
+        <select
+          id="lang"
+          name="lang"
+          class="form-control mb-2 mr-sm-2"
+          [(ngModel)]="selectedLang"
+          (change)="onChangeLanguage($event.target.value)"
+        >
+          <option *ngFor="let option of languages" [value]="option">{{
+            option
+          }}</option>
         </select>
         <label for="theme" class="mb-2 mr-sm-2">Theme:</label>
-        <select id="theme" name="theme" class="form-control mb-2 mr-sm-2" [(ngModel)]="selectedTheme" (change)="onChangeTheme($event.target.value)">
-          <option *ngFor="let option of themes" [value]="option.value">{{option.name}}</option>
+        <select
+          id="theme"
+          name="theme"
+          class="form-control mb-2 mr-sm-2"
+          [(ngModel)]="selectedTheme"
+          (change)="onChangeTheme($event.target.value)"
+        >
+          <option *ngFor="let option of themes" [value]="option.value">{{
+            option.name
+          }}</option>
         </select>
         <div class="form-check mb-2 mr-sm-2">
           <label class="form-check-label">
-            <input class="form-check-input "type="checkbox" (change)="onChangeInline($event.target.checked)"> Inline Diff
+            <input
+              class="form-check-input "
+              type="checkbox"
+              (change)="onChangeInline($event.target.checked)"
+            />
+            Inline Diff
           </label>
         </div>
       </form>
@@ -21,7 +50,12 @@
   </div>
   <div *ngIf="isCompared" class="row">
     <div class="col-md-12 editor">
-      <ngx-monaco-diff-editor id="diffeditor" [options]="diffOptions" [originalModel]="originalModel" [modifiedModel]="modifiedModel"></ngx-monaco-diff-editor>
+      <ngx-monaco-diff-editor
+        id="diffeditor"
+        [options]="diffOptions"
+        [originalModel]="originalModel"
+        [modifiedModel]="modifiedModel"
+      ></ngx-monaco-diff-editor>
     </div>
   </div>
   <div class="row">
@@ -29,20 +63,30 @@
       <div class="input-title">
         <label>Original Text</label>
       </div>
-      <ngx-monaco-editor id="editor1" [options]="inputOptions" [(ngModel)]="text1"></ngx-monaco-editor>
+      <ngx-monaco-editor
+        id="editor1"
+        [options]="inputOptions"
+        [(ngModel)]="text1"
+      ></ngx-monaco-editor>
     </div>
     <div class="col-md-6">
       <div class="input-title">
         <label>Changed Text</label>
       </div>
-      <ngx-monaco-editor id="editor2" [options]="inputOptions" [(ngModel)]="text2"></ngx-monaco-editor>
+      <ngx-monaco-editor
+        id="editor2"
+        [options]="inputOptions"
+        [(ngModel)]="text2"
+      ></ngx-monaco-editor>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12" style="text-align:center">
-      <button type="button" class="btn btn-primary" (click)="onCompare()">Find Difference</button>
+      <button type="button" class="btn btn-primary" (click)="onCompare()">
+        Find Difference
+      </button>
     </div>
   </div>
 </div>
-<br>
-<br>
+<br />
+<br />
