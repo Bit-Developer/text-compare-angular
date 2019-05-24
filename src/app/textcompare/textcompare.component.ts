@@ -91,7 +91,13 @@ export class TextCompareComponent implements OnInit {
   ];
 
   // input
-  inputOptions = { theme: "vs", language: "plaintext" };
+  inputOptions = {
+    theme: "vs",
+    language: "plaintext",
+    minimap: {
+      enabled: false
+    }
+  };
   // compare, output
   diffOptions = {
     theme: "vs",
