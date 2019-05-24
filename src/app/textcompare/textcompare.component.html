@@ -49,7 +49,7 @@
     </div>
   </div>
   <div *ngIf="isCompared" class="row">
-    <div class="col-md-12 editor">
+    <div class="col-md-12 editor editor-size">
       <ngx-monaco-diff-editor
         id="diffeditor"
         [options]="diffOptions"
@@ -59,9 +59,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12" style="margin: 20px; text-align:center">
+      <button type="button" class="btn btn-success" (click)="onCompare()">
+        Compare
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        style="float:right;"
+        (click)="onClear()"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 editor-size">
       <div class="input-title">
-        <label>Original Text</label>
+        <label>Text1</label>
       </div>
       <ngx-monaco-editor
         id="editor1"
@@ -69,22 +84,15 @@
         [(ngModel)]="text1"
       ></ngx-monaco-editor>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 editor-size">
       <div class="input-title">
-        <label>Changed Text</label>
+        <label>Text2</label>
       </div>
       <ngx-monaco-editor
         id="editor2"
         [options]="inputOptions"
         [(ngModel)]="text2"
       ></ngx-monaco-editor>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" style="text-align:center">
-      <button type="button" class="btn btn-primary" (click)="onCompare()">
-        Find Difference
-      </button>
     </div>
   </div>
 </div>

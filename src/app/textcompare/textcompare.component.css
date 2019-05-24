@@ -24,3 +24,7 @@
 .input-title label {
   margin-top: 6px;
 }
+.editor-size {
+  resize: vertical;
+  overflow: auto;
+}

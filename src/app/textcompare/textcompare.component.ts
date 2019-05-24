@@ -4,23 +4,22 @@ import {
   Input,
   Output,
   OnInit
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { DiffEditorModel } from 'ngx-monaco-editor';
+} from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import { DiffEditorModel } from "ngx-monaco-editor";
 
 @Component({
-  selector: 'textcompare',
+  selector: "textcompare",
   styleUrls: ["./textcompare.component.css"],
   templateUrl: "./textcompare.component.html",
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class TextCompareComponent implements OnInit {
-
   text1 = "";
   text2 = "";
   isCompared = false;
-  
+
   @Output()
   selectedLang = "plaintext";
   @Output()
@@ -92,27 +91,36 @@ export class TextCompareComponent implements OnInit {
   ];
 
   // input
-  inputOptions = { theme: "vs", language: 'plaintext' };
+  inputOptions = { theme: "vs", language: "plaintext" };
   // compare, output
-  diffOptions = { theme: "vs", language: "plaintext", readOnly: true, renderSideBySide: true };
+  diffOptions = {
+    theme: "vs",
+    language: "plaintext",
+    readOnly: true,
+    renderSideBySide: true
+  };
   originalModel: DiffEditorModel = {
-    code: '',
-    language: 'plaintext' 
+    code: "",
+    language: "plaintext"
   };
 
   modifiedModel: DiffEditorModel = {
-    code: '',
-    language: 'plaintext' 
+    code: "",
+    language: "plaintext"
   };
 
-  public ngOnInit() {
-    
-  }
+  public ngOnInit() {}
 
   onChangeLanguage(language) {
-    this.inputOptions = Object.assign({}, this.inputOptions, { language: language });
-    this.originalModel = Object.assign({}, this.originalModel, { language: language });
-    this.modifiedModel = Object.assign({}, this.modifiedModel, { language: language });
+    this.inputOptions = Object.assign({}, this.inputOptions, {
+      language: language
+    });
+    this.originalModel = Object.assign({}, this.originalModel, {
+      language: language
+    });
+    this.modifiedModel = Object.assign({}, this.modifiedModel, {
+      language: language
+    });
   }
   onChangeTheme(theme) {
     this.inputOptions = Object.assign({}, this.inputOptions, { theme: theme });
@@ -120,13 +128,25 @@ export class TextCompareComponent implements OnInit {
   }
 
   onChangeInline(checked) {
-    this.diffOptions = Object.assign({}, this.diffOptions, { renderSideBySide: !checked });
+    this.diffOptions = Object.assign({}, this.diffOptions, {
+      renderSideBySide: !checked
+    });
   }
 
   onCompare() {
-    this.originalModel = Object.assign({}, this.originalModel, { code: this.text1 });
-    this.modifiedModel = Object.assign({}, this.originalModel, { code: this.text2 });
+    this.originalModel = Object.assign({}, this.originalModel, {
+      code: this.text1
+    });
+    this.modifiedModel = Object.assign({}, this.originalModel, {
+      code: this.text2
+    });
     this.isCompared = true;
+    window.scrollTo(0, 0); // scroll the window to top
+  }
+  onClear() {
+    this.text1 = "";
+    this.text2 = "";
+    this.isCompared = false;
     window.scrollTo(0, 0); // scroll the window to top
   }
 }
