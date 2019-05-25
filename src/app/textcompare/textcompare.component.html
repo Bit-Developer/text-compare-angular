@@ -9,8 +9,8 @@
     </p>
   </div>
   <div *ngIf="isCompared" class="row">
-    <div class="col-md-12">
-      <form class="form-inline" role="form">
+    <div class="col-md-11">
+      <form class="form-inline " role="form">
         <label for="lang" class="mb-2 mr-sm-2">Language:</label>
         <select
           id="lang"
@@ -47,6 +47,15 @@
         </div>
       </form>
     </div>
+    <div class="col-md-1">
+      <button
+        type="button"
+        class="btn btn-danger float-md-right"
+        (click)="onClear()"
+      >
+        Clear
+      </button>
+    </div>
   </div>
   <div *ngIf="isCompared" class="row">
     <div class="col-md-12 editor editor-size">
@@ -59,17 +68,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12" style="margin: 20px; text-align:center">
+    <div class="col-md-12" style="text-align:center; margin:10px 0px">
       <button type="button" class="btn btn-success" (click)="onCompare()">
         Compare
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        style="float:right;"
-        (click)="onClear()"
-      >
-        Clear
       </button>
     </div>
   </div>
@@ -78,21 +79,35 @@
       <div class="input-title">
         <label>Text1</label>
       </div>
+      <textarea
+        class="form-control"
+        rows="4"
+        id="editor1"
+        [(ngModel)]="text1"
+      ></textarea>
+      <!--
       <ngx-monaco-editor
         id="editor1"
         [options]="inputOptions"
         [(ngModel)]="text1"
-      ></ngx-monaco-editor>
+      ></ngx-monaco-editor>-->
     </div>
     <div class="col-md-6 editor-size">
       <div class="input-title">
         <label>Text2</label>
       </div>
+      <textarea
+        class="form-control"
+        rows="4"
+        id="editor2"
+        [(ngModel)]="text2"
+      ></textarea>
+      <!--
       <ngx-monaco-editor
         id="editor2"
         [options]="inputOptions"
         [(ngModel)]="text2"
-      ></ngx-monaco-editor>
+      ></ngx-monaco-editor>-->
     </div>
   </div>
 </div>

@@ -3,10 +3,10 @@
 }
 #editor1,
 #editor2 {
-  height: 500px;
+  height: 50vh;
 }
 #diffeditor {
-  height: 500px;
+  height: 50vh;
 }
 
 .editor-container {
@@ -23,8 +23,4 @@
 }
 .input-title label {
   margin-top: 6px;
-}
-.editor-size {
-  resize: vertical;
-  overflow: auto;
 }

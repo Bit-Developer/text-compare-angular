@@ -96,6 +96,22 @@ export class TextCompareComponent implements OnInit {
     language: "plaintext",
     minimap: {
       enabled: false
+    },
+    scrollbar: {
+      // Subtle shadows to the left & top. Defaults to true.
+      useShadows: false,
+      // Render vertical arrows. Defaults to false.
+      verticalHasArrows: false,
+      // Render horizontal arrows. Defaults to false.
+      horizontalHasArrows: false,
+      // Render vertical scrollbar.
+      // Accepted values: 'auto', 'visible', 'hidden'.
+      // Defaults to 'auto'
+      vertical: "hidden",
+      // Render horizontal scrollbar.
+      // Accepted values: 'auto', 'visible', 'hidden'.
+      // Defaults to 'auto'
+      horizontal: "hidden"
     }
   };
   // compare, output
