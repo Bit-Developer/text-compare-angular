@@ -1,7 +1,6 @@
 language: node_js
 node_js:
   - "9"
-dist: trusty
 sudo: false
 
 branches:
@@ -12,16 +11,10 @@ cache:
   directories:
     - node_modules
 
-install:
-  - npm install -g yarn
-
-script:
-  - yarn lint
-  - yarn build --base-href https://github.com/jojozhuang/text-compare-angular
 deploy:
-  provider: pages
+  provider: heroku
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/text-compare-angular
-  on:
-    branch: master
+  keep-history: true
+  api-key:
+    secure: $HEROKU_API_KEY
+  app: online-judge-api
