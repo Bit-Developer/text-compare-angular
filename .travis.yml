@@ -17,4 +17,4 @@ deploy:
   keep-history: true
   api-key:
     secure: $HEROKU_API_KEY
-  app: online-judge-api
+  app: text-compare-angular
