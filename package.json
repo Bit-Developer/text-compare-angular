@@ -8,7 +8,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng serve",
+    "start": "node server.js",
+    "postinstall": "ng build --aot --prod",
     "build": "ng build --prod",
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 ng build --prod",
     "test": "echo \"test is ignored\"",
@@ -18,11 +20,11 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
-    "@angular/cli": "^7.3.9",
-    "@angular/compiler-cli": "^7.2.15",
     "@angular/animations": "^7.2.15",
+    "@angular/cli": "^7.3.9",
     "@angular/common": "^7.2.15",
     "@angular/compiler": "^7.2.15",
+    "@angular/compiler-cli": "^7.2.15",
     "@angular/core": "^7.2.15",
     "@angular/forms": "^7.2.15",
     "@angular/http": "^7.2.15",
@@ -31,13 +33,14 @@
     "@angular/router": "^7.2.15",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.8",
+    "express": "^4.17.1",
     "hawk": "^7.0.10",
     "ngx-monaco-editor": "^5.0.0",
     "rimraf": "^2.6.3",
     "rxjs": "^6.5.2",
+    "rxjs-compat": "^6.0.0-rc.0",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.29",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular/language-service": "^7.2.15",
@@ -58,5 +61,9 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~3.2.4"
+  },
+  "engines": {
+    "node": "9.4.0",
+    "npm": "6.9.0"
   }
 }
