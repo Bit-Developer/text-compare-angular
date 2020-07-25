@@ -15,6 +15,7 @@ This app can determine the different content for the given 'Original Text' and '
 
 # Demo
 Two available demos:
+* `Live Demo on Heroku:` <a href="https://text-compare-angular.herokuapp.com/" target="\_blank">https://text-compare-angular.herokuapp.com/</a>
 * `Live Demo on Netlify:` <a href="https://text-compare.netlify.com/" target="\_blank">https://text-compare.netlify.com/</a>
 * `Live Demo on Azure:` <a href="https://text-compare.azurewebsites.net/" target="\_blank">https://text-compare.azurewebsites.net/</a>
 
