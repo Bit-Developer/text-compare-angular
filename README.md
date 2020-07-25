@@ -42,7 +42,7 @@ Access http://localhost:8080/ in web browser and click 'Text Compare' menu, enjo
 # Deployment
 Read tutorial [Deploying Text Compare Angular App to Docker](https://jojozhuang.github.io/tutorial/deploying-text-compare-angular-app-to-docker) to learn how this angular app is deployed to Docker.
 
-Read tutorial [Deploying Text Compare Angular App to Netlify](https://jojozhuang.github.io/angular/deploying-text-compare-angular-app-to-netlify) to learn how this angular app is deployed to Netlify.
+Read tutorial [Deploying Text Compare Angular App to Netlify](https://jojozhuang.github.io/tutorial/deploying-text-compare-angular-app-to-netlify) to learn how this angular app is deployed to Netlify.
 
 # Portfolio
 Read portfolio [Text Compare(Angular)](https://jojozhuang.github.io/project/text-compare-angular) to learn the main functions of this text compare tool.
