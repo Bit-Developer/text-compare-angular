@@ -9,5 +9,5 @@ deploy:
   skip_cleanup: true
   keep-history: true
   api-key:
-    secure: MFTc8fBmaCRwWPYCE54DXWBi4MVflYr4+oNBj15gMgxDrVExVz3mvu2L3njngabOkMSbSn5YYQzXF3XqeZbtbgS3IV6F7m4H/KzB/XQ3kOLktkl9J1Z4/33wOAaH05kApPUCfxu0WCzSLqRY21dy3lA++UD0RgyulxPGQLPyg8zIeH/jOsmaFTaGUO6z4RGE9ngjriJMPEvw+LQUDA42zzVmHsrojD1UIwdwXaUzsJe2VXsX1fvcJXOxRvG/pEkU/JN8Lqf2nLklMzJqA9k47jfLaRp6aEVyZ5rdcdL5aikSh8UD8CahExlH6UJU+4Wo4X/Wp4K2+ZXLcc5/wCUV6RPzJ+tuxJ7eLRQ26PsQFTmcO+mppkP2JqWebcYlV9lyNu5HQSM/yEBHV5jLZi8v86R+NVVl1TmLu+hJiXVuY7rqIKFAQYDLyDELO3WmwRXQx2HhQyGJZYH0+wJSLBl8A8AQspRQb34P1HwD3dj4/EEvonGJF3f/oAyi38w4WGodPx3hK2bhqieAyEkmoC2PhVQQvfM3RO7pOHpi/WBdX0BLotg4ZO+5uqwariK4oHS8Poz2DtzJlWPa8bX5XA90emiyKkh7lt4ZT5l7dj/cbd17NQhhTrxrNg65q9Qt+0/Z7mdsakHThY8rBB5UUeBJsg1fb51hCxARMzV3coSaGsU=
+    secure: $HEROKU_API_KEY
   app: text-compare-angular
