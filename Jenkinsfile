@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Create Image') {
             steps {
-                sh 'docker build -t jojozhuang/text-compare'
+                sh 'docker build -t jojozhuang/text-compare .'
                 sh 'docker push jojozhuang/text-compare'
             }
         }
