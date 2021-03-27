@@ -54,7 +54,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "text-compare-angular:build"
+            "browserTarget": "text-compare-angular:build",
+            "port": 12010
           },
           "configurations": {
             "production": {

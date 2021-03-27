@@ -28,7 +28,7 @@ cd text-compare-angular
 npm install
 npm start
 ```
-Access http://localhost:4200/ in web browser and click 'Text Compare' menu, enjoy!
+Access http://localhost:12010/ in web browser and click 'Text Compare' menu, enjoy!
 
 # Setup in Docker
 ```bash
