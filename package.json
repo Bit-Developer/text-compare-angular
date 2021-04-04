@@ -10,9 +10,11 @@
     "ng": "ng",
     "dev": "ng serve",
     "start": "node server.js",
-    "postinstall": "ng build --aot --prod",
+    "build-aot": "ng build --aot --prod",
     "build": "ng build --prod",
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 ng build --prod",
+    "build-nas": "ng build --configuration nas",
+    "start-nas": "ng serve --configuration nas",
     "test": "echo \"test is ignored\"",
     "lint": "ng lint",
     "e2e": "ng e2e"

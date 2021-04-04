@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,12 @@ import { Router } from "@angular/router";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  envName: string;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   ngOnInit() {
-    console.log(this.router.url);
+    this.envName = environment.env_name;
   }
 
 }

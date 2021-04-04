@@ -1,3 +1,11 @@
 .nav-home {
   font-weight: bold;
 }
+
+.env-name {
+  color:lightyellow;
+  background-color: olivedrab;
+  margin-left: 20px;
+  padding: 5px 8px;
+  font-weight: bold;
+}

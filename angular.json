@@ -32,6 +32,23 @@
             "scripts": []
           },
           "configurations": {
+            "nas": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.nas.ts"
+                }
+              ]
+            },
             "production": {
               "optimization": true,
               "outputHashing": "all",
@@ -58,6 +75,9 @@
             "port": 12010
           },
           "configurations": {
+            "nas": {
+              "browserTarget": "text-compare-angular:build:nas"
+            },
             "production": {
               "browserTarget": "text-compare-angular:build:production"
             }
