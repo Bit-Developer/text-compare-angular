@@ -1,13 +1,13 @@
 # Usage:
 #
 #    Build image:
-#    docker build -t jojozhuang/text-compare .
+#    docker build -t jojozhuang/text-compare-angular .
 #
 #    Run image (on localhost:12010):
-#    docker run -d --name text-compare -p 12010:80 jojozhuang/text-compare
+#    docker run -d --name text-compare -p 12010:80 jojozhuang/text-compare-angular
 #
 #    Run image as virtual host (read more: https://github.com/nginx-proxy/nginx-proxy):
-#    docker run -e VIRTUAL_HOST=text-compare.your-domain.com --name text-compare jojozhuang/text-compare
+#    docker run -e VIRTUAL_HOST=text-compare.your-domain.com --name text-compare jojozhuang/text-compare-angular
 
 # Stage 1, based on Node.js, to build and compile Angular
 

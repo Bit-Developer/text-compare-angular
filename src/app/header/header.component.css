@@ -4,8 +4,9 @@
 
 .env-name {
   color:lightyellow;
+  font-size: 14px;
   background-color: olivedrab;
   margin-left: 20px;
-  padding: 5px 8px;
+  padding: 2px 8px;
   font-weight: bold;
 }
