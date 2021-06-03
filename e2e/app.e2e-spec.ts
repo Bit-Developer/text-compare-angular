@@ -7,8 +7,8 @@ describe('text-compare-angular App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display text compare title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Text Compare');
   });
 });
