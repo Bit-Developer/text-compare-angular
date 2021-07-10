@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { TextCompareComponent } from './textcompare.component';
+import { CompareEditorComponent } from './compare-editor.component';
 
 describe('TextCompareComponent', () => {
-  let component: TextCompareComponent;
-  let fixture: ComponentFixture<TextCompareComponent>;
+  let component: CompareEditorComponent;
+  let fixture: ComponentFixture<CompareEditorComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextCompareComponent ]
+      declarations: [ CompareEditorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextCompareComponent);
+    fixture = TestBed.createComponent(CompareEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

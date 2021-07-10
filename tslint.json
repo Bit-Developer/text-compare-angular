@@ -125,6 +125,7 @@
       true,
       "element",
       "app",
+      "widget",
       "kebab-case"
     ],
     "no-output-on-prefix": true,

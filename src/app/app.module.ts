@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { TextCompareComponent } from './textcompare/textcompare.component';
+import { CompareEditorComponent } from './compare-editor/compare-editor.component';
 
 import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 // routes
-import { appRoutes } from "./app.route";
+import { appRoutes } from './app.route';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { appRoutes } from "./app.route";
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    TextCompareComponent
+    CompareEditorComponent
   ],
   imports: [
     BrowserModule,

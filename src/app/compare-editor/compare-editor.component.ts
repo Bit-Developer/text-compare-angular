@@ -4,96 +4,94 @@ import {
   Input,
   Output,
   OnInit
-} from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
-import { DiffEditorModel } from "ngx-monaco-editor";
+} from '@angular/core';
+import { DiffEditorModel } from 'ngx-monaco-editor';
 
 @Component({
-  selector: "textcompare",
-  styleUrls: ["./textcompare.component.css"],
-  templateUrl: "./textcompare.component.html",
+  selector: 'widget-compare-editor',
+  styleUrls: ['./compare-editor.component.css'],
+  templateUrl: './compare-editor.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class TextCompareComponent implements OnInit {
-  text1 = "";
-  text2 = "";
+export class CompareEditorComponent implements OnInit {
+  text1 = '';
+  text2 = '';
   isCompared = false;
 
   @Output()
-  selectedLang = "plaintext";
+  selectedLang = 'plaintext';
   @Output()
-  selectedTheme = "vs";
+  selectedTheme = 'vs';
 
   @Input()
   languages = [
-    "bat",
-    "c",
-    "coffeescript",
-    "cpp",
-    "csharp",
-    "csp",
-    "css",
-    "dockerfile",
-    "fsharp",
-    "go",
-    "handlebars",
-    "html",
-    "ini",
-    "java",
-    "javascript",
-    "json",
-    "less",
-    "lua",
-    "markdown",
-    "msdax",
-    "mysql",
-    "objective-c",
-    "pgsql",
-    "php",
-    "plaintext",
-    "postiats",
-    "powershell",
-    "pug",
-    "python",
-    "r",
-    "razor",
-    "redis",
-    "redshift",
-    "ruby",
-    "rust",
-    "sb",
-    "scss",
-    "sol",
-    "sql",
-    "st",
-    "swift",
-    "typescript",
-    "vb",
-    "xml",
-    "yaml"
+    'bat',
+    'c',
+    'coffeescript',
+    'cpp',
+    'csharp',
+    'csp',
+    'css',
+    'dockerfile',
+    'fsharp',
+    'go',
+    'handlebars',
+    'html',
+    'ini',
+    'java',
+    'javascript',
+    'json',
+    'less',
+    'lua',
+    'markdown',
+    'msdax',
+    'mysql',
+    'objective-c',
+    'pgsql',
+    'php',
+    'plaintext',
+    'postiats',
+    'powershell',
+    'pug',
+    'python',
+    'r',
+    'razor',
+    'redis',
+    'redshift',
+    'ruby',
+    'rust',
+    'sb',
+    'scss',
+    'sol',
+    'sql',
+    'st',
+    'swift',
+    'typescript',
+    'vb',
+    'xml',
+    'yaml'
   ];
 
   @Input()
   themes = [
     {
-      value: "vs",
-      name: "Visual Studio"
+      value: 'vs',
+      name: 'Visual Studio'
     },
     {
-      value: "vs-dark",
-      name: "Visual Studio Dark"
+      value: 'vs-dark',
+      name: 'Visual Studio Dark'
     },
     {
-      value: "hc-black",
-      name: "High Contrast Dark"
+      value: 'hc-black',
+      name: 'High Contrast Dark'
     }
   ];
 
   // input
   inputOptions = {
-    theme: "vs",
-    language: "plaintext",
+    theme: 'vs',
+    language: 'plaintext',
     minimap: {
       enabled: false
     },
@@ -107,28 +105,28 @@ export class TextCompareComponent implements OnInit {
       // Render vertical scrollbar.
       // Accepted values: 'auto', 'visible', 'hidden'.
       // Defaults to 'auto'
-      vertical: "hidden",
+      vertical: 'hidden',
       // Render horizontal scrollbar.
       // Accepted values: 'auto', 'visible', 'hidden'.
       // Defaults to 'auto'
-      horizontal: "hidden"
+      horizontal: 'hidden'
     }
   };
   // compare, output
   diffOptions = {
-    theme: "vs",
-    language: "plaintext",
+    theme: 'vs',
+    language: 'plaintext',
     readOnly: true,
     renderSideBySide: true
   };
   originalModel: DiffEditorModel = {
-    code: "",
-    language: "plaintext"
+    code: '',
+    language: 'plaintext'
   };
 
   modifiedModel: DiffEditorModel = {
-    code: "",
-    language: "plaintext"
+    code: '',
+    language: 'plaintext'
   };
 
   public ngOnInit() {}
@@ -166,8 +164,8 @@ export class TextCompareComponent implements OnInit {
     window.scrollTo(0, 0); // scroll the window to top
   }
   onClear() {
-    this.text1 = "";
-    this.text2 = "";
+    this.text1 = '';
+    this.text2 = '';
     this.isCompared = false;
     window.scrollTo(0, 0); // scroll the window to top
   }
