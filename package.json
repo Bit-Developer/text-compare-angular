@@ -7,8 +7,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "ng serve",
-    "dummy-server": "node server.js",
+    "start": "node server.js",
+    "dev": "ng serve",
     "build-aot": "ng build --aot --prod",
     "build": "ng build --prod",
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 ng build --prod",
