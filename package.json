@@ -33,7 +33,7 @@
     "@angular/router": "^13.1.1",
     "bootstrap": "^4.6.1",
     "core-js": "^2.6.12",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "hawk": "^7.1.2",
     "ngx-monaco-editor": "^5.0.0",
     "rimraf": "^2.6.3",
