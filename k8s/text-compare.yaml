@@ -1,0 +1,44 @@
+# Setup loocally
+# 1. Build image for ARM platform
+# docker build -t text-compare-angular-arm . -f Dockerfile-ARM 
+# 2. Deploy to k8s: 
+# kubectl apply -f k8s/text-compare.yaml
+# 3. Create service in minikube: 
+# minikube service text-compare-service
+# 4. Access the url from step 3.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text-compare-deployment
+  labels:
+    app: text-compare
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: text-compare
+  template:
+    metadata:
+      labels:
+        app: text-compare
+    spec:
+      containers:
+      - name: text-compare
+        image: jojozhuang/text-compare-angular
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: text-compare-service
+spec:
+  selector:
+    app: text-compare
+  type: LoadBalancer # assign an external IP address to accept external request
+  ports:
+    - protocol: TCP
+      port: 12011
+      targetPort: 80
+      nodePort: 31000 # must be between 30000 and 32767
