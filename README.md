@@ -52,6 +52,56 @@ minikube service text-compare-service
 # 4. Web browser will be opened automatically to access the site.
 ```
 
+# Use helm with k8s
+
+Create helm chart with the following command.
+
+```sh
+helm create deployment
+```
+
+Then, edit the deployment file, service and config map file accordingly.
+
+After editing all configuration files, install with helm.
+
+```sh
+helm install compare-helm deployment
+```
+
+Helm will create k8s components based on the configuration files. Use `kubectl get all | grep helm` to find them.
+
+```sh
+kubectl get all | grep helm
+pod/compare-helm-76b67b5db6-r6jwq              1/1     Running   0          12m
+service/compare-helm           ClusterIP      10.97.189.245   <none>        80/TCP            12m
+deployment.apps/compare-helm              1/1     1            1           12m
+replicaset.apps/compare-helm-76b67b5db6              1         1         1       12m
+```
+
+If you make any change to the configuration files, use the following command to upgrade.
+
+```sh
+helm upgrade compare-helm deployment
+```
+
+List all deployed namespaces.
+
+```sh
+helm ls --all-namespaces
+NAME        	NAMESPACE    	REVISION	UPDATED                             	STATUS  	CHART           	APP VERSION
+compare-helm	default      	2       	2024-01-07 21:05:52.849445 -0800 PST	deployed	deployment-0.1.0	1.16.0
+text-compare	bit-developer	1       	2024-01-07 20:50:29.372749 -0800 PST	deployed	deployment-0.1.0	1.16.0
+text-compare	default      	1       	2024-01-07 20:42:49.758154 -0800 PST	failed  	deployment-0.1.0	1.16.0
+```
+
+Start the service to view the web app in brower.
+
+```sh
+minikube service compare-helm
+```
+
+- [How to Create Helm Charts - The Ultimate Guide](https://www.youtube.com/watch?v=jUYNS90nq8U&ab_channel=DevOpsJourney)
+
 # Deployment
 Read tutorial [Deploying Text Compare Angular App to Docker](https://jojozhuang.github.io/tutorial/deploying-text-compare-angular-app-to-docker) to learn how this angular app is deployed to Docker.
 
