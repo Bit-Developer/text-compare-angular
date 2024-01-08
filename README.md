@@ -177,6 +177,96 @@ kubectl --namespace default port-forward service/compare-helm 8888:80
 
 Then, you are able to access your site through `http://localhost:8888/`.
 
+## Deploy to multiple environments
+
+### Docker images
+
+Create two docker images first, one for `nas`, another for `prod`.
+
+```sh
+docker build -t jojozhuang/text-compare-angular-nas -f Dockerfile-nas .
+docker build -t jojozhuang/text-compare-angular-prod -f Dockerfile-prod .
+```
+
+List all images and make sure `jojozhuang/text-compare-angular-nas` and `jojozhuang/text-compare-angular-prod` are there.
+
+```sh
+docker images
+REPOSITORY                             TAG       IMAGE ID       CREATED         SIZE
+jojozhuang/text-compare-angular-prod   latest    4a53306114f5   4 seconds ago   30.8MB
+jojozhuang/text-compare-angular-nas    latest    ee561a5e50b3   5 hours ago     30.8MB
+jojozhuang/text-compare-angular        latest    ee561a5e50b3   5 hours ago     30.8MB
+```
+
+Push to docker hub.
+
+```sh
+docker push jojozhuang/text-compare-angular-nas
+docker push jojozhuang/text-compare-angular-prod
+```
+
+If you don't push them to hub.docker.com, you might get `ErrImagePull` error.
+
+```sh
+kubectl get all -n prod
+NAME                                READY   STATUS              RESTARTS   AGE
+pod/compare-helm-57f779585d-6c665   0/1     ErrImageNeverPull   0          5s
+pod/compare-helm-6c5668997f-kzk9n   0/1     ErrImagePull        0          105s
+```
+
+### Environment specified value files
+
+Copy `values.yaml` and create for `nas` and `prod` env.
+
+```sh
+kubectl create namespace nas
+kubectl create namespace prod
+```
+
+Check new namespaces `nas` and `prod` are created.
+
+```sh
+kubectl get namespaces
+NAME                   STATUS   AGE
+bit-developer          Active   70m
+default                Active   6h24m
+kube-node-lease        Active   6h24m
+kube-public            Active   6h24m
+kube-system            Active   6h24m
+kubernetes-dashboard   Active   6h23m
+nas                    Active   14s
+prod                   Active   13s
+```
+
+Install for nas and prod namespaces.
+
+```sh
+helm install compare-helm-nas deployment --values deployment/values.yaml -f deployment/values-nas.yaml -n nas
+helm install compare-helm-prod deployment --values deployment/values.yaml -f deployment/values-prod.yaml -n prod
+```
+
+List all namespaces.
+
+```sh
+helm ls --all-namespaces
+NAME             	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART           	APP VERSION
+compare-helm     	default  	6       	2024-01-07 21:49:34.420836 -0800 PST	deployed	deployment-0.1.0	1.16.0
+compare-helm-nas 	nas      	1       	2024-01-07 22:10:09.473106 -0800 PST	deployed	deployment-0.1.0	1.16.0
+compare-helm-prod	prod     	1       	2024-01-07 22:10:20.00086 -0800 PST 	deployed	deployment-0.1.0	1.16.0
+```
+
+```sh
+kubectl get all -n prod
+kubectl describe pod compare-helm-77ddc9bc6b-xf96c -n prod
+```
+
+```sh
+helm upgrade compare-helm-nas deployment --values deployment/values.yaml -f deployment/values-nas.yaml -n nas
+helm upgrade compare-helm-prod deployment --values deployment/values.yaml -f deployment/values-prod.yaml -n prod
+```
+
+Start nas service and prod service seperately and access `http://localhost:8888/`. You will see the env name on the home page is shown correctly, from `nas` to `production`.
+
 - [How to Create Helm Charts - The Ultimate Guide](https://www.youtube.com/watch?v=jUYNS90nq8U&ab_channel=DevOpsJourney)
 
 # Deployment
