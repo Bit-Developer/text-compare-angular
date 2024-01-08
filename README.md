@@ -100,6 +100,46 @@ Start the service to view the web app in brower.
 minikube service compare-helm
 ```
 
+# Use helm with template
+
+Edit the file in `template` folder, use `Values` variables and put the actual values in `values.yaml`.
+
+```yaml
+appName: compare-helm
+namespace: default
+
+configmap:
+  name: compare-configmap
+  data:
+    ENV_NAME: 'DEV'
+
+image:
+  name: jojozhuang/text-compare-angular
+  tag: latest
+```
+
+Upgrade the deployment.
+
+```sh
+helm upgrade compare-helm deployment --values deployment/values.yaml
+W0107 21:30:02.019806   39661 warnings.go:70] unknown field "spec.ports[0].type"
+Release "compare-helm" has been upgraded. Happy Helming!
+NAME: compare-helm
+LAST DEPLOYED: Sun Jan  7 21:30:01 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
+```
+
+After each upgrade, the revision number should be incremented.
+
+```sh
+helm ls
+NAME        	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART           	APP VERSION
+compare-helm	default  	5       	2024-01-07 21:38:03.669554 -0800 PST	deployed	deployment-0.1.0	1.16.0
+```
+
 - [How to Create Helm Charts - The Ultimate Guide](https://www.youtube.com/watch?v=jUYNS90nq8U&ab_channel=DevOpsJourney)
 
 # Deployment
