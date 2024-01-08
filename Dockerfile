@@ -11,7 +11,7 @@
 
 # Stage 1, based on Node.js, to build and compile Angular
 
-FROM node:15.12.0-alpine as builder
+FROM node:16.10.0-alpine as builder
 
 WORKDIR /ng-app
 
