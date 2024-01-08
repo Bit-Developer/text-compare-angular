@@ -1,0 +1,11 @@
+appName: compare-helm
+namespace: default
+
+configmap:
+  name: compare-configmap
+  data:
+    ENV_NAME: 'DEV'
+
+image:
+  name: jojozhuang/text-compare-angular
+  tag: latest

@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: compare-helm
-  #namespace: bit-developer
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: compare-helm
+    app: {{ .Values.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: compare-helm
+      app: {{ .Values.appName }}
       tier: frontend
   template:
     metadata:
       labels:
-        app: compare-helm
+        app: {{ .Values.appName }}
         tier: frontend
     spec: # Pod spec
       containers:
-      - name: compare-helm
-        image: jojozhuang/text-compare-angular
+      - name: {{ .Values.appName }}
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         ports:
           - containerPort: 80
         resources:

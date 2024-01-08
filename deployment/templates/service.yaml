@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: compare-helm
-  #namespace: bit-developer
+  namespace: {{ .Values.namespace }}
   labels:
     app: compare-helm
 spec:

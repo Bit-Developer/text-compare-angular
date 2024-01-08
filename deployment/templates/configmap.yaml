@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: compare-configmap
-  #namespace: bit-developer
+  name: {{ .Values.configmap.name }}
+  namespace: {{ .Values.namespace }}
 data:
-  ENV_NAME: 'DEV'
+  ENV_NAME: {{ .Values.configmap.data.ENV_NAME }}
