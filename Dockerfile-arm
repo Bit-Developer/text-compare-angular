@@ -1,10 +1,10 @@
 # Usage:
 #
 #    Build image:
-#    docker build -t jojozhuang/text-compare-angular .
+#    docker build -t jojozhuang/text-compare-angular-arm . -f Dockerfile-ARM 
 #
 #    Run image (on localhost:12010):
-#    docker run -d --name text-compare -p 12010:80 jojozhuang/text-compare-angular
+#    docker run -d --name text-compare -p 12010:80 jojozhuang/text-compare-angular-arm
 #
 #    Run image as virtual host (read more: https://github.com/nginx-proxy/nginx-proxy):
 #    docker run -e VIRTUAL_HOST=text-compare.your-domain.com --name text-compare jojozhuang/text-compare-angular
@@ -22,7 +22,7 @@ RUN npm ci --quiet && npm run build-nas
 
 # Stage 2, based on Nginx, to have only the compiled app, ready for production with Nginx
 
-FROM nginx:1.19.8-alpine
+FROM arm64v8/nginx
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 

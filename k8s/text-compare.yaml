@@ -1,11 +1,11 @@
 # Setup loocally
-# 1. Build image for ARM platform
-# docker build -t text-compare-angular-arm . -f Dockerfile-ARM 
-# 2. Deploy to k8s: 
+# 1. Build image
+# docker build -t text-compare-angular .
+# 2. Deploy to k8s:
 # kubectl apply -f k8s/text-compare.yaml
-# 3. Create service in minikube: 
+# 3. Create service in minikube:
 # minikube service text-compare-service
-# 4. Access the url from step 3.
+# 4. Web browser will be opened automatically to access the site.
 
 apiVersion: apps/v1
 kind: Deployment

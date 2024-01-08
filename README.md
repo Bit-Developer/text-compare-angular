@@ -40,6 +40,18 @@ docker run --name text-compare-angular -p 8080:80 text-compare-angular
 ```
 Access http://localhost:8080/ in web browser and click 'Text Compare' menu, enjoy!
 
+# Setup in K8s
+
+```sh
+# 1. Build image
+docker build -t text-compare-angular .
+# 2. Deploy to k8s:
+kubectl apply -f k8s/text-compare.yaml
+# 3. Create service in minikube:
+minikube service text-compare-service
+# 4. Web browser will be opened automatically to access the site.
+```
+
 # Deployment
 Read tutorial [Deploying Text Compare Angular App to Docker](https://jojozhuang.github.io/tutorial/deploying-text-compare-angular-app-to-docker) to learn how this angular app is deployed to Docker.
 
