@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: compare-configmap
+  #namespace: bit-developer
+data:
+  ENV_NAME: 'DEV'

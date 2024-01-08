@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compare-helm
+  #namespace: bit-developer
+  labels:
+    app: compare-helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compare-helm
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: compare-helm
+        tier: frontend
+    spec: # Pod spec
+      containers:
+      - name: compare-helm
+        image: jojozhuang/text-compare-angular
+        ports:
+          - containerPort: 80
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
