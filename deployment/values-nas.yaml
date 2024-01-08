@@ -1,0 +1,10 @@
+namespace: nas
+
+configmap:
+  name: compare-configmap
+  data:
+    ENV_NAME: 'NAS'
+
+image:
+  name: jojozhuang/text-compare-angular-nas
+  tag: latest
