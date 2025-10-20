@@ -5,7 +5,7 @@ import {
   Output,
   OnInit
 } from '@angular/core';
-import { DiffEditorModel } from 'ngx-monaco-editor';
+import { DiffEditorModel } from 'ngx-monaco-editor-v2';
 
 @Component({
   selector: 'widget-compare-editor',

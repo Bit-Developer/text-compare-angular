@@ -35,7 +35,7 @@
     "core-js": "^2.6.12",
     "express": "^4.17.2",
     "hawk": "^7.1.2",
-    "ngx-monaco-editor": "^5.0.0",
+    "ngx-monaco-editor-v2": "^15.0.1",
     "rimraf": "^2.6.3",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",

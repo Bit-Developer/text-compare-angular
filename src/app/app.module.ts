@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CompareEditorComponent } from './compare-editor/compare-editor.component';
 
 import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 // routes
 import { appRoutes } from './app.route';

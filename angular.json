@@ -19,7 +19,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "input": "node_modules/monaco-editor",
                 "output": "/assets/monaco"
               },
               "src/assets",
@@ -119,7 +119,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "input": "node_modules/monaco-editor",
                 "output": "/assets/monaco"
               },
               "src/assets",
