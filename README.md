@@ -26,6 +26,7 @@ Two available demos:
 git clone https://github.com/jojozhuang/text-compare-angular.git
 cd text-compare-angular
 npm install
+npm run build
 npm start
 ```
 Access http://localhost:12010/ in web browser and click 'Text Compare' menu, enjoy!
