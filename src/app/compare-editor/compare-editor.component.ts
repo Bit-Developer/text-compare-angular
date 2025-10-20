@@ -8,10 +8,11 @@ import {
 import { DiffEditorModel } from 'ngx-monaco-editor-v2';
 
 @Component({
-  selector: 'widget-compare-editor',
-  styleUrls: ['./compare-editor.component.css'],
-  templateUrl: './compare-editor.component.html',
-  encapsulation: ViewEncapsulation.None
+    selector: 'widget-compare-editor',
+    styleUrls: ['./compare-editor.component.css'],
+    templateUrl: './compare-editor.component.html',
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CompareEditorComponent implements OnInit {
   text1 = '';
