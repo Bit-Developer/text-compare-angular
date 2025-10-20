@@ -5,7 +5,7 @@ const port = process.env.PORT || 12010;
 
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/browser'));
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -25,7 +25,7 @@ const forceSSL = function () {
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+  res.sendFile(path.join(__dirname + '/dist/browser/index.html'));
 });
 
 // Instruct the app to use the forceSSL middleware
