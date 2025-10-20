@@ -86,22 +86,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "text-compare-angular:build",
-            "port": 12010
+            "port": 12010,
+            "buildTarget": "text-compare-angular:build"
           },
           "configurations": {
             "nas": {
-              "browserTarget": "text-compare-angular:build:nas"
+              "buildTarget": "text-compare-angular:build:nas"
             },
             "production": {
-              "browserTarget": "text-compare-angular:build:production"
+              "buildTarget": "text-compare-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "text-compare-angular:build"
+            "buildTarget": "text-compare-angular:build"
           }
         },
         "test": {
