@@ -10,7 +10,7 @@
     "start": "node server.js",
     "dev": "ng serve",
     "build-aot": "ng build --aot --prod",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 ng build --prod",
     "build-nas": "ng build --configuration nas",
     "start-nas": "ng serve --configuration nas",
