@@ -26,7 +26,7 @@ import { appRoutes } from './app.route';
     BrowserModule,
     FormsModule,
     MonacoEditorModule.forRoot(),
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(appRoutes, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
