@@ -32,7 +32,6 @@
     "@angular/platform-browser-dynamic": "^20.3.6",
     "@angular/router": "^20.3.6",
     "bootstrap": "^4.6.1",
-    "core-js": "^2.6.12",
     "ngx-monaco-editor-v2": "^20.3.0",
     "rimraf": "^2.6.3",
     "rxjs": "^6.6.7",
