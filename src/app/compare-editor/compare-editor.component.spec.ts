@@ -8,7 +8,7 @@ describe('TextCompareComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CompareEditorComponent],
+      declarations: [CompareEditorComponent]
     }).compileComponents();
   }));
 

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
-  standalone: false,
+  standalone: false
 })
 export class FooterComponent implements OnInit {
   currentYear: number;

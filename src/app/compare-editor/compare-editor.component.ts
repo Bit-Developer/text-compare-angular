@@ -12,7 +12,7 @@ import { DiffEditorModel } from 'ngx-monaco-editor-v2';
   styleUrls: ['./compare-editor.component.css'],
   templateUrl: './compare-editor.component.html',
   encapsulation: ViewEncapsulation.None,
-  standalone: false,
+  standalone: false
 })
 export class CompareEditorComponent implements OnInit {
   text1 = '';
@@ -21,6 +21,7 @@ export class CompareEditorComponent implements OnInit {
 
   @Output()
   selectedLang = 'plaintext';
+
   @Output()
   selectedTheme = 'vs';
 
@@ -71,22 +72,22 @@ export class CompareEditorComponent implements OnInit {
     'vb',
     'xml',
     'yaml'
-    ];
+  ];
 
   @Input()
   themes = [
     {
       value: 'vs',
-      name: 'Visual Studio',
-      },
+      name: 'Visual Studio'
+    },
     {
       value: 'vs-dark',
-      name: 'Visual Studio Dark',
-      },
+      name: 'Visual Studio Dark'
+    },
     {
       value: 'hc-black',
-      name: 'High Contrast Dark',
-      },
+      name: 'High Contrast Dark'
+    }
   ];
 
   // input
@@ -110,8 +111,8 @@ export class CompareEditorComponent implements OnInit {
       // Render horizontal scrollbar.
       // Accepted values: 'auto', 'visible', 'hidden'.
       // Defaults to 'auto'
-      horizontal: 'hidden',
-    },
+      horizontal: 'hidden'
+    }
   };
   // compare, output
   diffOptions = {
@@ -122,12 +123,12 @@ export class CompareEditorComponent implements OnInit {
   };
   originalModel: DiffEditorModel = {
     code: '',
-    language: 'plaintext',
+    language: 'plaintext'
   };
 
   modifiedModel: DiffEditorModel = {
     code: '',
-    language: 'plaintext',
+    language: 'plaintext'
   };
 
   public ngOnInit() {}
