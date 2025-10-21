@@ -12,12 +12,11 @@ variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
 
 stages:
-
-  - stage: Lint
-    displayName: 'Lint'
+  - stage: Install
+    displayName: 'Install'
     jobs:
-      - job: lint
-        displayName: 'Run lint'
+      - job: install
+        displayName: 'Install dependencies'
         pool:
           vmImage: ubuntu-latest
         steps:
@@ -36,6 +35,31 @@ stages:
 
           - script: npm ci
             displayName: 'Install dependencies (npm ci)'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: 'node_modules'
+              artifact: 'node_modules'
+            displayName: 'Publish node_modules artifact'
+
+  - stage: Lint
+    displayName: 'Lint'
+    dependsOn: Install
+    condition: succeeded()
+    jobs:
+      - job: lint
+        displayName: 'Run lint'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+            displayName: 'Use Node.js $(nodeVersion)'
+
+          - download: current
+            artifact: node_modules
+            displayName: 'Download node_modules artifact'
 
           - script: |
               npx -y @angular/cli@$(nodeVersion) version || true
@@ -56,16 +80,9 @@ stages:
             inputs:
               versionSpec: '$(nodeVersion)'
 
-          - task: Cache@2
-            inputs:
-              key: 'npm | "$(Agent.OS)" | package-lock.json'
-              path: $(npm_config_cache)
-              restoreKeys: |
-                npm | "$(Agent.OS)"
-            displayName: 'Cache npm'
-
-          - script: npm ci
-            displayName: 'Install dependencies (npm ci)'
+          - download: current
+            artifact: node_modules
+            displayName: 'Download node_modules artifact'
 
           - script: |
               # Run unit tests in headless Chrome and produce coverage
@@ -86,16 +103,9 @@ stages:
             inputs:
               versionSpec: '$(nodeVersion)'
 
-          - task: Cache@2
-            inputs:
-              key: 'npm | "$(Agent.OS)" | package-lock.json'
-              path: $(npm_config_cache)
-              restoreKeys: |
-                npm | "$(Agent.OS)"
-            displayName: 'Cache npm'
-
-          - script: npm ci
-            displayName: 'Install dependencies (npm ci)'
+          - download: current
+            artifact: node_modules
+            displayName: 'Download node_modules artifact'
 
           - script: npm run build -- --configuration production
             displayName: 'Build (production)'
