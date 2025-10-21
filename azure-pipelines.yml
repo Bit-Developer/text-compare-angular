@@ -57,9 +57,10 @@ stages:
               versionSpec: '$(nodeVersion)'
             displayName: 'Use Node.js $(nodeVersion)'
 
-          - download: current
-            artifact: node_modules
-            path: '$(System.DefaultWorkingDirectory)'
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: 'node_modules'
+              path: '$(System.DefaultWorkingDirectory)'
             displayName: 'Download node_modules artifact'
 
           - script: |
@@ -87,9 +88,10 @@ stages:
             inputs:
               versionSpec: '$(nodeVersion)'
 
-          - download: current
-            artifact: node_modules
-            path: '$(System.DefaultWorkingDirectory)'
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: 'node_modules'
+              path: '$(System.DefaultWorkingDirectory)'
             displayName: 'Download node_modules artifact'
 
           - script: |
@@ -117,9 +119,10 @@ stages:
             inputs:
               versionSpec: '$(nodeVersion)'
 
-          - download: current
-            artifact: node_modules
-            path: '$(System.DefaultWorkingDirectory)'
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: 'node_modules'
+              path: '$(System.DefaultWorkingDirectory)'
             displayName: 'Download node_modules artifact'
 
           - script: |
