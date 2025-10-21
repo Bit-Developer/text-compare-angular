@@ -62,6 +62,10 @@ stages:
             displayName: 'Download node_modules artifact'
 
           - script: |
+              chmod -R +x node_modules/.bin
+            displayName: 'Fix permissions for node_modules/.bin'
+
+          - script: |
               npx -y @angular/cli@$(nodeVersion) version || true
               npm run lint
             displayName: 'Run lint'
@@ -85,6 +89,10 @@ stages:
             displayName: 'Download node_modules artifact'
 
           - script: |
+              chmod -R +x node_modules/.bin
+            displayName: 'Fix permissions for node_modules/.bin'
+
+          - script: |
               # Run unit tests in headless Chrome and produce coverage
               npm run test-headless -- --no-watch --browsers=ChromeHeadless
             displayName: 'Run unit tests (headless)'
@@ -106,6 +114,10 @@ stages:
           - download: current
             artifact: node_modules
             displayName: 'Download node_modules artifact'
+
+          - script: |
+              chmod -R +x node_modules/.bin
+            displayName: 'Fix permissions for node_modules/.bin'
 
           - script: npm run build -- --configuration production
             displayName: 'Build (production)'
