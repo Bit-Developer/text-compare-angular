@@ -17,7 +17,7 @@ This app can determine the different content for the given 'Original Text' and '
 
 Three available demos:
 
-* `Live Demo on Netlify:` <a href="https://text-compare.netlify.com/" target="\_blank">https://text-compare.netlify.com/</a>
+* `Live Demo on Netlify:` <a href="https://text-compare.netlify.app/" target="\_blank">https://text-compare.netlify.app/</a>
 * `Live Demo on Render:` <a href="https://text-compare.onrender.com/" target="\_blank">https://text-compare.onrender.com/</a>
 * `Live Demo on Azure:` <a href="https://text-compare.azurewebsites.net/" target="\_blank">https://text-compare.azurewebsites.net/</a>
 
