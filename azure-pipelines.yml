@@ -38,7 +38,7 @@ stages:
 
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: 'node_modules'
+              targetPath: '$(System.DefaultWorkingDirectory)/node_modules'
               artifact: 'node_modules'
             displayName: 'Publish node_modules artifact'
 
@@ -62,7 +62,9 @@ stages:
             displayName: 'Download node_modules artifact'
 
           - script: |
-              chmod -R +x node_modules/.bin
+              echo "Listing node_modules after download:"
+              ls -la $(System.DefaultWorkingDirectory)/node_modules
+              chmod -R +x $(System.DefaultWorkingDirectory)/node_modules/.bin
             displayName: 'Fix permissions for node_modules/.bin'
 
           - script: |
@@ -89,7 +91,9 @@ stages:
             displayName: 'Download node_modules artifact'
 
           - script: |
-              chmod -R +x node_modules/.bin
+              echo "Listing node_modules after download:"
+              ls -la $(System.DefaultWorkingDirectory)/node_modules
+              chmod -R +x $(System.DefaultWorkingDirectory)/node_modules/.bin
             displayName: 'Fix permissions for node_modules/.bin'
 
           - script: |
@@ -116,7 +120,9 @@ stages:
             displayName: 'Download node_modules artifact'
 
           - script: |
-              chmod -R +x node_modules/.bin
+              echo "Listing node_modules after download:"
+              ls -la $(System.DefaultWorkingDirectory)/node_modules
+              chmod -R +x $(System.DefaultWorkingDirectory)/node_modules/.bin
             displayName: 'Fix permissions for node_modules/.bin'
 
           - script: npm run build -- --configuration production
