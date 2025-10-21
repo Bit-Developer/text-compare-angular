@@ -26,6 +26,13 @@ Three available demos:
 
 *Note: The demo websites may be slow when you access them for the first time. Be patient!*
 
+## Cloud Services
+
+- https://app.netlify.com/
+- https://dashboard.render.com/
+- https://portal.azure.com/
+- https://dev.azure.com/
+
 # Setup Locally
 ```bash
 git clone https://github.com/jojozhuang/text-compare-angular.git
