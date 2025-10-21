@@ -4,15 +4,17 @@ This app is used to compare text, built with Angular and [Monaco Editor](https:/
 <kbd>![image](/src/assets/typescript.png)</kbd>
 
 # Function
+
 This app can determine the different content for the given 'Original Text' and 'Changed Text'. It is based on [Monaco Diff Editor](https://microsoft.github.io/monaco-editor) and currently supporting the following features:
 * Syntax highlighting for 45+ languages, including c, c++, java, javascript, html, typescript, etc.
 * Three editor themes: Visual Studio, Visual Studio Dark and High Contrast Dark.
 * Diff Mode: Side by Side Diff, Inline Diff.
 
 # Technology
+
 * Frontend Framework: Angular
 * Styling: bootstrap
-* Text Editor: ngx-monaco-editor
+* Text Editor: ngx-monaco-editor-v2
 
 # Demo
 
