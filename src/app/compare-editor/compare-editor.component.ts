@@ -8,11 +8,11 @@ import {
 import { DiffEditorModel } from 'ngx-monaco-editor-v2';
 
 @Component({
-    selector: 'widget-compare-editor',
-    styleUrls: ['./compare-editor.component.css'],
-    templateUrl: './compare-editor.component.html',
-    encapsulation: ViewEncapsulation.None,
-    standalone: false
+  selector: 'widget-compare-editor',
+  styleUrls: ['./compare-editor.component.css'],
+  templateUrl: './compare-editor.component.html',
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class CompareEditorComponent implements OnInit {
   text1 = '';
@@ -21,6 +21,7 @@ export class CompareEditorComponent implements OnInit {
 
   @Output()
   selectedLang = 'plaintext';
+
   @Output()
   selectedTheme = 'vs';
 
@@ -130,9 +131,10 @@ export class CompareEditorComponent implements OnInit {
     language: 'plaintext'
   };
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   public ngOnInit() {}
 
-  onChangeLanguage(language) {
+  onChangeLanguage(language: string) {
     this.inputOptions = Object.assign({}, this.inputOptions, {
       language: language
     });
@@ -143,12 +145,12 @@ export class CompareEditorComponent implements OnInit {
       language: language
     });
   }
-  onChangeTheme(theme) {
+  onChangeTheme(theme: string) {
     this.inputOptions = Object.assign({}, this.inputOptions, { theme: theme });
     this.diffOptions = Object.assign({}, this.diffOptions, { theme: theme });
   }
 
-  onChangeInline(checked) {
+  onChangeInline(checked: boolean) {
     this.diffOptions = Object.assign({}, this.diffOptions, {
       renderSideBySide: !checked
     });
