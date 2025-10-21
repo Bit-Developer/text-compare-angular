@@ -12,9 +12,41 @@ variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
 
 stages:
+  - stage: Init
+    displayName: 'Init'
+    jobs:
+      - job: connectivity
+        displayName: 'Check Connectivity'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+            displayName: 'Use Node.js $(nodeVersion)'
+
+          - script: |
+              # Check GitHub connectivity
+              echo "Checking GitHub connectivity..."
+              curl -s -o /dev/null -w "GitHub Status: %{http_code}\n" https://api.github.com/
+
+              # Check npm registry
+              echo "Checking npm registry..."
+              npm ping
+
+              # Show npm config
+              echo "npm configuration:"
+              npm config list
+
+              # Verify git remote
+              echo "Git remote info:"
+              git remote -v
+            displayName: 'Check GitHub and npm connectivity'
 
   - stage: Lint
     displayName: 'Lint'
+    dependsOn: Init
+    condition: succeeded()
     jobs:
       - job: lint
         displayName: 'Run lint'
