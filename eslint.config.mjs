@@ -65,13 +65,13 @@ export default defineConfig([globalIgnores([
         eqeqeq: "error",
         "guard-for-in": "error",
 
-        indent: ["error", 2, {
-            SwitchCase: 1,
-
-            FunctionExpression: {
-                parameters: "first",
-            },
-        }],
+        // Removing indent rule as it's handled by Prettier
+        // indent: ["error", 2, {
+        //     SwitchCase: 1,
+        //     FunctionExpression: {
+        //         parameters: "first",
+        //     },
+        // }],
 
         "no-caller": "error",
         "no-bitwise": "error",
