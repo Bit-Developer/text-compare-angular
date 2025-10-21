@@ -26,7 +26,9 @@
                 "output": "/assets/monaco"
               },
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "src/_redirects",
+              "src/_headers"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -121,7 +123,9 @@
                 "output": "/assets/monaco"
               },
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "src/_redirects",
+              "src/_headers"
             ]
           }
         }
