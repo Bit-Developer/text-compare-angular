@@ -18,7 +18,8 @@ export default defineConfig([globalIgnores([
     "projects/**/*",
     "dist/*",
     "coverage/*",
-    "e2e/*"
+    "e2e/*",
+    "**/*.d.ts"
 ]), {
     extends: compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),
 }, {
