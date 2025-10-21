@@ -21,4 +21,13 @@ describe('TextCompareComponent', () => {
   it('should create', async () => {
     await expect(component).toBeTruthy();
   });
+
+  it('should render title in a h1 tag', waitForAsync(async () => {
+    const fixture = TestBed.createComponent(CompareEditorComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    await expect(compiled.querySelector('h1').textContent).toContain(
+      'Text Compare'
+    );
+  }));
 });
