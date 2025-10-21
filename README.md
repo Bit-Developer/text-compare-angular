@@ -1,4 +1,5 @@
 # Text Compare Tool
+
 This app is used to compare text, built with Angular and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
 <kbd>![image](/src/assets/typescript.png)</kbd>
 
