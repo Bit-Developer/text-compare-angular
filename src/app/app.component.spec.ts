@@ -2,22 +2,22 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(waitForAsync(async () => {
+    await TestBed.configureTestingModule({
       declarations: [AppComponent]
     }).compileComponents();
   }));
 
-  it('should create the app', waitForAsync(() => {
+  it('should create the app', waitForAsync(async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    const app = fixture.debugElement.componentInstance as AppComponent;
+    await expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'app\'', waitForAsync(() => {
+  it('should have as title app', waitForAsync(async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
+    const app = fixture.debugElement.componentInstance as AppComponent;
+    await expect(app.title).toEqual('app');
   }));
 
   it('should render title in a h1 tag', waitForAsync(() => {

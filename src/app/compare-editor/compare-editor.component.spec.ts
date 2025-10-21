@@ -6,8 +6,8 @@ describe('TextCompareComponent', () => {
   let component: CompareEditorComponent;
   let fixture: ComponentFixture<CompareEditorComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(waitForAsync(async () => {
+    await TestBed.configureTestingModule({
       declarations: [CompareEditorComponent]
     }).compileComponents();
   }));
@@ -18,7 +18,7 @@ describe('TextCompareComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await expect(component).toBeTruthy();
   });
 });
