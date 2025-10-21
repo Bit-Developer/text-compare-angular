@@ -131,9 +131,10 @@ export class CompareEditorComponent implements OnInit {
     language: 'plaintext'
   };
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   public ngOnInit() {}
 
-  onChangeLanguage(language) {
+  onChangeLanguage(language: string) {
     this.inputOptions = Object.assign({}, this.inputOptions, {
       language: language
     });
@@ -144,12 +145,12 @@ export class CompareEditorComponent implements OnInit {
       language: language
     });
   }
-  onChangeTheme(theme) {
+  onChangeTheme(theme: string) {
     this.inputOptions = Object.assign({}, this.inputOptions, { theme: theme });
     this.diffOptions = Object.assign({}, this.diffOptions, { theme: theme });
   }
 
-  onChangeInline(checked) {
+  onChangeInline(checked: boolean) {
     this.diffOptions = Object.assign({}, this.diffOptions, {
       renderSideBySide: !checked
     });
