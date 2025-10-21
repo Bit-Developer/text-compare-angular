@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  env_name: 'Local'
+  env_name: "Local",
 };

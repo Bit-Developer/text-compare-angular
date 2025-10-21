@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
-import { CompareEditorComponent } from './compare-editor.component';
+import { CompareEditorComponent } from "./compare-editor.component";
 
-describe('TextCompareComponent', () => {
+describe("TextCompareComponent", () => {
   let component: CompareEditorComponent;
   let fixture: ComponentFixture<CompareEditorComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompareEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [CompareEditorComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('TextCompareComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

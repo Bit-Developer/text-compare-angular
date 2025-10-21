@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  env_name: 'Nas'
+  env_name: "Nas",
 };

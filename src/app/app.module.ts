@@ -1,18 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes} from '@angular/router';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { CompareEditorComponent } from './compare-editor/compare-editor.component';
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { CompareEditorComponent } from "./compare-editor/compare-editor.component";
 
-import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
+import { FormsModule } from "@angular/forms";
+import { MonacoEditorModule } from "ngx-monaco-editor-v2";
 
 // routes
-import { appRoutes } from './app.route';
+import { appRoutes } from "./app.route";
 
 @NgModule({
   declarations: [
@@ -20,15 +20,15 @@ import { appRoutes } from './app.route';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    CompareEditorComponent
+    CompareEditorComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MonacoEditorModule.forRoot(),
-    RouterModule.forRoot(appRoutes, {})
+    RouterModule.forRoot(appRoutes, {}),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
