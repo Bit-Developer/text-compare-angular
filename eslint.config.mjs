@@ -22,7 +22,7 @@ export default defineConfig([globalIgnores([
 ]), {
     extends: compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),
 }, {
-    files: ["**/*.ts"],
+    files: ["/src/**/*.ts"],
 
     extends: compat.extends(
         "plugin:@angular-eslint/recommended",

@@ -8,9 +8,9 @@ import {
 import { DiffEditorModel } from 'ngx-monaco-editor-v2';
 
 @Component({
-  selector: "widget-compare-editor",
-  styleUrls: ["./compare-editor.component.css"],
-  templateUrl: "./compare-editor.component.html",
+  selector: 'widget-compare-editor',
+  styleUrls: ['./compare-editor.component.css'],
+  templateUrl: './compare-editor.component.html',
   encapsulation: ViewEncapsulation.None,
   standalone: false,
 })
@@ -26,67 +26,67 @@ export class CompareEditorComponent implements OnInit {
 
   @Input()
   languages = [
-    "bat",
-    "c",
-    "coffeescript",
-    "cpp",
-    "csharp",
-    "csp",
-    "css",
+    'bat',
+    'c',
+    'coffeescript',
+    'cpp',
+    'csharp',
+    'csp',
+    'css',
     'dockerfile',
-    "fsharp",
-    "go",
+    'fsharp',
+    'go',
     'handlebars',
-    "html",
-    "ini",
+    'html',
+    'ini',
     'java',
-    "javascript",
-    "json",
-    "less",
+    'javascript',
+    'json',
+    'less',
     'lua',
-    "markdown",
-    "msdax",
+    'markdown',
+    'msdax',
     'mysql',
-    "objective-c",
-    "pgsql",
-    "php",
-    "plaintext",
-    "postiats",
-    "powershell",
-    "pug",
+    'objective-c',
+    'pgsql',
+    'php',
+    'plaintext',
+    'postiats',
+    'powershell',
+    'pug',
     'python',
-    "r",
+    'r',
     'razor',
-    "redis",
-    "redshift",
-    "ruby",
-    "rust",
+    'redis',
+    'redshift',
+    'ruby',
+    'rust',
     'sb',
-    "scss",
-    "sol",
-    "sql",
-    "st",
+    'scss',
+    'sol',
+    'sql',
+    'st',
     'swift',
-    "typescript",
-    "vb",
+    'typescript',
+    'vb',
     'xml',
-    'yaml',
-  ];
+    'yaml'
+    ];
 
   @Input()
   themes = [
     {
       value: 'vs',
       name: 'Visual Studio',
-    },
+      },
     {
       value: 'vs-dark',
       name: 'Visual Studio Dark',
-    },
+      },
     {
       value: 'hc-black',
       name: 'High Contrast Dark',
-    },
+      },
   ];
 
   // input
@@ -111,7 +111,7 @@ export class CompareEditorComponent implements OnInit {
       // Accepted values: 'auto', 'visible', 'hidden'.
       // Defaults to 'auto'
       horizontal: 'hidden',
-    }
+    },
   };
   // compare, output
   diffOptions = {
