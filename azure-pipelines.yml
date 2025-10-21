@@ -76,7 +76,7 @@ stages:
 
   - stage: Test
     displayName: 'Test'
-    dependsOn: Lint
+    dependsOn: Init
     condition: succeeded()
     jobs:
       - job: test
@@ -106,7 +106,9 @@ stages:
 
   - stage: Build
     displayName: 'Build'
-    dependsOn: Test
+    dependsOn:
+    - Lint
+    - Test
     condition: succeeded()
     jobs:
       - job: build
