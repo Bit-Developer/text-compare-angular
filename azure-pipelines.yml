@@ -39,7 +39,7 @@ steps:
 
 - script: |
     npx -y @angular/cli@$(nodeVersion) version || true
-    npm run lint --silent
+    npm run lint
   displayName: 'Run lint'
 
 - script: |
@@ -53,10 +53,25 @@ steps:
   displayName: 'Build (production)'
   condition: eq(variables['Build.SourceBranchName'], 'main')
 
-# Publish artifact
+# Stage build outputs into the artifact staging directory and publish
+- script: |
+    echo "Staging build artifacts..."
+    mkdir -p "$(Build.ArtifactStagingDirectory)/dist"
+    if [ -d "dist/text-compare-angular" ]; then
+      cp -r dist/text-compare-angular/* "$(Build.ArtifactStagingDirectory)/dist/"
+    elif [ -d "dist" ]; then
+      cp -r dist/* "$(Build.ArtifactStagingDirectory)/dist/"
+    else
+      echo "No dist folder found after build"
+      ls -la
+    fi
+  displayName: 'Stage build artifacts'
+  condition: eq(variables['Build.SourceBranchName'], 'main')
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publish dist artifact'
+  condition: eq(variables['Build.SourceBranchName'], 'main')
