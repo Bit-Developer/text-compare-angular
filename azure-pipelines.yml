@@ -1,3 +1,119 @@
+# Node.js with Angular - staged pipeline (best-practice: npm ci per stage + npm cache)
+trigger:
+- main
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  nodeVersion: '20.x'
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+stages:
+
+  - stage: Lint
+    displayName: 'Lint'
+    jobs:
+      - job: lint
+        displayName: 'Run lint'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+            displayName: 'Use Node.js $(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: |
+              npx -y @angular/cli@$(nodeVersion) version || true
+              npm run lint
+            displayName: 'Run lint'
+
+  - stage: Test
+    displayName: 'Test'
+    dependsOn: Lint
+    condition: succeeded()
+    jobs:
+      - job: test
+        displayName: 'Unit tests'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: |
+              # Run unit tests in headless Chrome and produce coverage
+              npm run test-headless -- --no-watch --browsers=ChromeHeadless
+            displayName: 'Run unit tests (headless)'
+
+  - stage: Build
+    displayName: 'Build'
+    dependsOn: Test
+    condition: succeeded()
+    jobs:
+      - job: build
+        displayName: 'Build and publish'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: npm run build -- --configuration production
+            displayName: 'Build (production)'
+
+          - script: |
+              mkdir -p "$(Build.ArtifactStagingDirectory)/dist"
+              if [ -d dist/text-compare-angular ]; then
+                cp -r dist/text-compare-angular/* "$(Build.ArtifactStagingDirectory)/dist/"
+              else
+                cp -r dist/* "$(Build.ArtifactStagingDirectory)/dist/"
+              fi
+            displayName: 'Stage build artifacts'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)/dist'
+              artifact: 'app-dist'
+            displayName: 'Publish pipeline artifact'
 # Node.js with Angular - staged pipeline
 trigger:
 - main
