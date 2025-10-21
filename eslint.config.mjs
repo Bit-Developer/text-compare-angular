@@ -19,7 +19,8 @@ export default defineConfig([globalIgnores([
     "dist/*",
     "coverage/*",
     "e2e/*",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/main.ts"
 ]), {
     extends: compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),
 }, {
@@ -120,6 +121,7 @@ export default defineConfig([globalIgnores([
         "@angular-eslint/no-output-on-prefix": "error",
         "@angular-eslint/no-output-rename": "error",
         "@angular-eslint/no-outputs-metadata-property": "error",
+        "@angular-eslint/prefer-standalone": "off",
         "@angular-eslint/use-lifecycle-interface": "error",
         "@angular-eslint/use-pipe-transform-interface": "error",
 

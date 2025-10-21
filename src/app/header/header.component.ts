@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class HeaderComponent implements OnInit {
   envName: string;
 
-  constructor(public router: Router) {}
+  protected router = inject(Router);
 
   ngOnInit() {
     this.envName = environment.env_name;
