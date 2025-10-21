@@ -6,17 +6,57 @@
 trigger:
 - main
 
+pr:
+  branches:
+    include:
+      - main
+
 pool:
   vmImage: ubuntu-latest
+
+variables:
+  nodeVersion: '20.x'
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+    versionSpec: '$(nodeVersion)'
+  displayName: 'Use Node.js $(nodeVersion)'
+
+# Cache node_modules between runs (uses pipeline cache)
+- task: Cache@2
+  inputs:
+    key: 'npm | "$(Agent.OS)" | package-lock.json'
+    path: $(npm_config_cache)
+    restoreKeys: |
+      npm | "$(Agent.OS)"
+  displayName: 'Cache npm'
 
 - script: |
-    npm install -g @angular/cli
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    npm ci
+  displayName: 'Install dependencies (npm ci)'
+
+- script: |
+    npx -y @angular/cli@$(nodeVersion) version || true
+    npm run lint --silent
+  displayName: 'Run lint'
+
+- script: |
+    # Run unit tests in headless Chrome and produce coverage
+    npm run test-headless -- --no-watch --browsers=ChromeHeadless
+  displayName: 'Run unit tests (headless)'
+
+# Build only on main branch (triggered by CI)
+- script: |
+    npm run build -- --configuration production
+  displayName: 'Build (production)'
+  condition: eq(variables['Build.SourceBranchName'], 'main')
+
+# Publish artifact
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish dist artifact'
