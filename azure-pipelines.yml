@@ -1,22 +1,150 @@
-# Node.js with Angular
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
+# Node.js with Angular - staged pipeline (best-practice: npm ci per stage + npm cache)
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pr:
+  branches:
+    include:
+      - main
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+variables:
+  nodeVersion: '20.x'
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+stages:
+  - stage: Init
+    displayName: 'Init'
+    jobs:
+      - job: connectivity
+        displayName: 'Check Connectivity'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+            displayName: 'Use Node.js $(nodeVersion)'
+
+          - script: |
+              # Check GitHub connectivity
+              echo "Checking GitHub connectivity..."
+              curl -s -o /dev/null -w "GitHub Status: %{http_code}\n" https://api.github.com/
+
+              # Check npm registry
+              echo "Checking npm registry..."
+              npm ping
+
+              # Show npm config
+              echo "npm configuration:"
+              npm config list
+
+              # Verify git remote
+              echo "Git remote info:"
+              git remote -v
+            displayName: 'Check GitHub and npm connectivity'
+
+  - stage: Lint
+    displayName: 'Lint'
+    dependsOn: Init
+    condition: succeeded()
+    jobs:
+      - job: lint
+        displayName: 'Run lint'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+            displayName: 'Use Node.js $(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: |
+              npx -y @angular/cli@$(nodeVersion) version || true
+              npm run lint
+            displayName: 'Run lint'
+
+  - stage: Test
+    displayName: 'Test'
+    dependsOn: Init
+    condition: succeeded()
+    jobs:
+      - job: test
+        displayName: 'Unit tests'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: |
+              # Run unit tests in headless Chrome and produce coverage
+              npm run test-headless -- --no-watch --browsers=ChromeHeadless
+            displayName: 'Run unit tests (headless)'
+
+  - stage: Build
+    displayName: 'Build'
+    dependsOn:
+    - Lint
+    - Test
+    condition: succeeded()
+    jobs:
+      - job: build
+        displayName: 'Build and publish'
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '$(nodeVersion)'
+
+          - task: Cache@2
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              path: $(npm_config_cache)
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+            displayName: 'Cache npm'
+
+          - script: npm ci
+            displayName: 'Install dependencies (npm ci)'
+
+          - script: npm run build -- --configuration production
+            displayName: 'Build (production)'
+
+          - script: |
+              mkdir -p "$(Build.ArtifactStagingDirectory)/dist"
+              if [ -d dist/text-compare-angular ]; then
+                cp -r dist/text-compare-angular/* "$(Build.ArtifactStagingDirectory)/dist/"
+              else
+                cp -r dist/* "$(Build.ArtifactStagingDirectory)/dist/"
+              fi
+            displayName: 'Stage build artifacts'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)/dist'
+              artifact: 'app-dist'
+            displayName: 'Publish pipeline artifact'
