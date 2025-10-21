@@ -34,7 +34,6 @@
     "bootstrap": "^4.6.1",
     "core-js": "^2.6.12",
     "express": "^4.17.2",
-    "hawk": "^7.1.2",
     "ngx-monaco-editor-v2": "^20.3.0",
     "rimraf": "^2.6.3",
     "rxjs": "^6.6.7",
