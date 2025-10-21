@@ -35,10 +35,17 @@ stages:
 
           - script: npm ci
             displayName: 'Install dependencies (npm ci)'
+          - script: |
+              echo "Copying node_modules to artifact staging directory..."
+              mkdir -p "$(Build.ArtifactStagingDirectory)"
+              # Copy node_modules folder into the artifact staging directory so publish preserves root
+              cp -a node_modules "$(Build.ArtifactStagingDirectory)/node_modules"
+              ls -la "$(Build.ArtifactStagingDirectory)/node_modules" | head -n 20
+            displayName: 'Prepare node_modules for publish'
 
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(System.DefaultWorkingDirectory)/node_modules'
+              targetPath: '$(Build.ArtifactStagingDirectory)/node_modules'
               artifact: 'node_modules'
             displayName: 'Publish node_modules artifact'
 
