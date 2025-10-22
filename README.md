@@ -12,6 +12,7 @@ This app can determine the different content for the given 'Original Text' and '
 
 # Technology
 
+* Node Version: v20.19.5
 * Frontend Framework: Angular
 * Styling: bootstrap
 * Text Editor: ngx-monaco-editor-v2
