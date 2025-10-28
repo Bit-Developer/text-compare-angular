@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/jojozhuang0911/portfolios/_apis/build/status%2FBit-Developer.text-compare-angular?branchName=refs%2Fpull%2F58%2Fmerge)](https://dev.azure.com/jojozhuang0911/portfolios/_build/latest?definitionId=1&branchName=refs%2Fpull%2F58%2Fmerge)
+
 # Text Compare Tool
 
 This app is used to compare text, built with Angular and [Monaco Editor](https://github.com/Microsoft/monaco-editor).
