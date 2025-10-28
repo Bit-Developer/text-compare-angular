@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/jojozhuang0911/portfolios/_apis/build/status%2FBit-Developer.text-compare-angular?branchName=refs%2Fpull%2F58%2Fmerge)](https://dev.azure.com/jojozhuang0911/portfolios/_build/latest?definitionId=1&branchName=refs%2Fpull%2F58%2Fmerge)
+[![Build Status](https://dev.azure.com/jojozhuang0911/portfolios/_apis/build/status%2FBit-Developer.text-compare-angular?branchName=refs%2Fpull%2F58%2Fmerge)](https://dev.azure.com/jojozhuang0911/portfolios/_build/latest?definitionId=1&branchName=refs%2Fpull%2F58%2Fmerge) [![Netlify Status](https://api.netlify.com/api/v1/badges/c61164d2-cd79-4689-a8df-7745641a9b73/deploy-status)](https://app.netlify.com/projects/text-compare/deploys)
 
 # Text Compare Tool
 
