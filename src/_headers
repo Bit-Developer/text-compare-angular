@@ -10,19 +10,3 @@
     worker-src 'self' blob:;
     font-src 'self' https:;
     object-src 'none';
-
-# --- Permissions Policy ---
-  Permissions-Policy:
-    camera=(self),
-    microphone=(self),
-    geolocation=(),
-    fullscreen=(self),
-    payment=(),
-    usb=();
-
-# --- Other Security Headers ---
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Cross-Origin-Embedder-Policy: require-corp
-  Cross-Origin-Opener-Policy: same-origin
