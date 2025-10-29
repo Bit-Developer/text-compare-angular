@@ -1,12 +1,8 @@
 /*
-# --- Content Security Policy ---
-  Content-Security-Policy:
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.netlify.app https://*.netlify.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https:;
-    connect-src 'self' https://*.netlify.app https://*.netlify.com https://api.netlify.com;
-    frame-src https://*.netlify.app https://*.netlify.com;
-    worker-src 'self' blob:;
-    font-src 'self' https:;
-    object-src 'none';
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: accelerometer=(), camera=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(self), payment=(), usb=()
+  Content-Security-Policy: default-src 'self' https://*.netlify.com; script-src 'self' blob: https://*.netlify.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com/
