@@ -15,7 +15,7 @@
     "build:nas": "ng build --configuration nas",
     "build:cross:env": "rimraf dist compiled && cross-env SOURCE_MAP=0 ng build --configuration production",
     "test": "ng test",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "e2e": "ng e2e"
   },
