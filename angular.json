@@ -42,6 +42,25 @@
             "browser": "src/main.ts"
           },
           "configurations": {
+            "azure": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.azure.ts"
+                }
+              ]
+            },
             "nas": {
               "budgets": [
                 {
@@ -90,6 +109,9 @@
             "buildTarget": "text-compare-angular:build"
           },
           "configurations": {
+            "azure": {
+              "buildTarget": "text-compare-angular:build:azure"
+            },
             "nas": {
               "buildTarget": "text-compare-angular:build:nas"
             },
