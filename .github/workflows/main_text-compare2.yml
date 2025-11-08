@@ -1,7 +1,8 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
+# Linux Server
 
-name: Build and deploy Node.js app to Azure Web App - text-compare2
+name: Deploy to Azure text-compare2
 
 on:
   push:
