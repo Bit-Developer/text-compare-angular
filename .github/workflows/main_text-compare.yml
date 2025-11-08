@@ -2,12 +2,12 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # Windows Server
 
-name: Build and deploy Node.js app to Azure Web App - text-compare
+name: Deploy to Azure text-compare
 
 on:
   push:
     branches:
-      - fix-deployment-to-text-compare
+      - main
   workflow_dispatch:
 
 jobs:
