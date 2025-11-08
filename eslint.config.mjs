@@ -18,7 +18,6 @@ export default defineConfig([globalIgnores([
     "projects/**/*",
     "dist/*",
     "coverage/*",
-    "e2e/*",
     "**/*.d.ts",
     "**/main.ts"
 ]), {
@@ -45,7 +44,7 @@ export default defineConfig([globalIgnores([
         sourceType: "script",
 
         parserOptions: {
-            project: ["tsconfig.json", "e2e/tsconfig.json"],
+            project: ["tsconfig.json"],
             createDefaultProgram: true,
         },
     },
