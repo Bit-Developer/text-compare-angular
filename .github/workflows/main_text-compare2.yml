@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - text-compare2
 on:
   push:
     branches:
-      - fix-deployment-to-text-compare2
+      - main
   workflow_dispatch:
 
 jobs:
