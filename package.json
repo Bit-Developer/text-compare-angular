@@ -19,8 +19,7 @@
     "build:cross:env": "rimraf dist compiled && cross-env SOURCE_MAP=0 ng build --configuration production",
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "e2e": "ng e2e"
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "private": true,
   "dependencies": {
@@ -63,7 +62,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.6.2",
-    "protractor": "~7.0.0",
     "rimraf": "^2.6.3",
     "ts-node": "~4.1.0",
     "typescript": "~5.8.3",
