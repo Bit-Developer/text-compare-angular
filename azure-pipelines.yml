@@ -101,7 +101,7 @@ stages:
 
           - script: |
               # Run unit tests in headless Chrome and produce coverage
-              npm run test-headless -- --no-watch --browsers=ChromeHeadless
+              npm run test:headless
             displayName: 'Run unit tests (headless)'
 
   - stage: Build
