@@ -18,7 +18,7 @@ WORKDIR /ng-app
 COPY package*.json tsconfig*.json angular.json ./
 COPY ./src ./src
 
-RUN npm ci --quiet && npm run build-nas
+RUN npm ci --quiet && npm run build:nas
 
 # Stage 2, based on Nginx, to have only the compiled app, ready for production with Nginx
 

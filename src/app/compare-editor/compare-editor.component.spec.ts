@@ -25,8 +25,8 @@ describe('TextCompareComponent', () => {
   it('should render title in a h1 tag', waitForAsync(async () => {
     const fixture = TestBed.createComponent(CompareEditorComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement as HTMLElement;
-    const h1Element = compiled.querySelector('h1');
+    const compareEditor = fixture.debugElement.nativeElement as HTMLElement;
+    const h1Element = compareEditor.querySelector('h1');
     await expect(h1Element).toBeTruthy('h1 element should exist');
     if (h1Element) {
       await expect(h1Element.textContent).toContain('Text Compare');

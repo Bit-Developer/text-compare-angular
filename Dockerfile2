@@ -22,7 +22,7 @@ WORKDIR /ng-app
 
 COPY . .
 
-RUN npm run build:aot:prod
+RUN npm run build:cross:env
 
 # Stage 2, based on Nginx, to have only the compiled app, ready for production with Nginx
 
