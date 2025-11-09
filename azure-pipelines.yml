@@ -104,6 +104,11 @@ stages:
               npm run test:headless
             displayName: 'Run unit tests (headless)'
 
+          - script: |
+              # Run e2e tests in headless Chrome
+              npm run e2e:headless
+            displayName: 'Run e2e tests (headless)'
+
   - stage: Build
     displayName: 'Build'
     dependsOn:

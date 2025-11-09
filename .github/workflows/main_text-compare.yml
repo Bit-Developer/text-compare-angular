@@ -29,6 +29,7 @@ jobs:
           npm install
           npm run build:azure
           npm run test:headless
+          npm run e2e:headless
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

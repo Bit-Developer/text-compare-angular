@@ -20,7 +20,8 @@
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "e2e": "npx cypress open"
+    "e2e": "npx cypress open",
+    "e2e:headless": "npx cypress run"
   },
   "private": true,
   "dependencies": {
