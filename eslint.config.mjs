@@ -16,6 +16,7 @@ const compat = new FlatCompat({
 export default defineConfig([globalIgnores([
     ".angular/*",
     "projects/**/*",
+    "cypress/*",
     "dist/*",
     "coverage/*",
     "**/*.d.ts",
@@ -168,7 +169,8 @@ export default defineConfig([globalIgnores([
         "@typescript-eslint/no-inferrable-types": ["error", {
             ignoreParameters: true,
         }],
-
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-non-null-assertion": "error",
         "@typescript-eslint/prefer-for-of": "error",
         "@typescript-eslint/prefer-function-type": "error",
