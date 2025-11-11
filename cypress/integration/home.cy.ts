@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 describe('Text Compare App', () => {
   beforeEach(() => {
