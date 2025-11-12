@@ -19,6 +19,7 @@
     "build:cross:env": "rimraf dist compiled && cross-env SOURCE_MAP=0 ng build --configuration production",
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "test:coverage": "ng test --karma-config=karma.conf.js --no-watch --code-coverage",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "e2e": "npx cypress open",
     "e2e:headless": "npx cypress run"
@@ -26,7 +27,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^20.3.6",
-    "@angular/cli": "^20.3.6",
     "@angular/common": "^20.3.6",
     "@angular/compiler": "^20.3.6",
     "@angular/compiler-cli": "^20.3.6",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.3.6",
     "@angular/language-service": "^20.3.6",
+    "@angular/cli": "^20.3.6",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
     "@types/jasmine": "~3.6.0",
