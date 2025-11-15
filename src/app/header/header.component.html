@@ -2,7 +2,10 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li [ngClass]="{ 'nav-item': true, active: router.url === '/' }">
-      <a class="nav-link nav-home" routerLink="/">Text Compare</a>
+      <a class="nav-link nav-home" routerLink="/">Home</a>
+    </li>
+    <li [ngClass]="{ 'nav-item': true, active: router.url === '/textcompare' }">
+      <a class="nav-link nav-home" routerLink="/textcompare">Text Compare</a>
     </li>
   </ul>
   <span class="badge badge-success" *ngIf="envName">
