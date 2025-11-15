@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   envName: 'Local',
-  monacoBaseUrl: '/assets/monaco/min/vs'
+  monacoBaseUrl: ''
 };

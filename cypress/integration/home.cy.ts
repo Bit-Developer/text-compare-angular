@@ -6,14 +6,14 @@ describe('Text Compare App', () => {
   });
 
   it('should display the app name on the home page', () => {
-    cy.visit('/');
+    cy.visit('#/');
     cy.contains('Text Compare');
     cy.contains('Netlify');
     cy.get('h1').should('contain.text', 'Text Compare');
   });
 
   it('should display two text boxes and a compare button', () => {
-    cy.visit('/');
+    cy.visit('#/');
     cy.get('#editor1').should('be.visible');
     cy.get('#editor2').should('be.visible');
     cy.contains('button', 'Compare').should('be.visible');
