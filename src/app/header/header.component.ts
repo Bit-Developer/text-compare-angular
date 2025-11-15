@@ -14,6 +14,6 @@ export class HeaderComponent implements OnInit {
   protected router = inject(Router);
 
   ngOnInit() {
-    this.envName = environment.env_name;
+    this.envName = environment.envName;
   }
 }

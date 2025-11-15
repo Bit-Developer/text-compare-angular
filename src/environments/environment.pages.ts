@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  envName: 'Production',
-  baseHref: '/',
+  envName: 'GitHub Pages',
+  baseHref: '/text-compare-angular/',
   monacoBaseUrl: '/assets/monaco/min/vs'
 };

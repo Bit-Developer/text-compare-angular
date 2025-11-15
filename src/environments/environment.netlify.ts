@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  env_name: 'Netlify'
+  envName: 'Netlify',
+  baseHref: '/',
+  monacoBaseUrl: '/assets/monaco/min/vs'
 };
