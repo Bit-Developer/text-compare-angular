@@ -19,7 +19,7 @@
     "build:azure": "ng build --configuration azure",
     "build:netlify": "ng build --configuration netlify",
     "build:render": "ng build --configuration render",
-    "build:pages": "ng build --configuration pages",
+    "build:pages": "ng build --configuration pages --base-href /text-compare-angular/ --deploy-url /text-compare-angular/",
     "build:nas": "ng build --configuration nas",
     "build:cross:env": "rimraf dist compiled && cross-env SOURCE_MAP=0 ng build --configuration production",
     "test": "ng test",
