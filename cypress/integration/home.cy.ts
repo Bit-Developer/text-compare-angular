@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
 describe('Text Compare App', () => {
+  const delay = 1000; // 1 second
+
   beforeEach(() => {
     cy.visit('https://text-compare.netlify.app/');
+    cy.wait(delay); // wait 1 second before running each test
   });
 
   it('should display the app name on the home page', () => {
@@ -23,8 +26,9 @@ describe('Text Compare App', () => {
     const left = 'Hello World';
     const right = 'Hello world';
 
-    cy.get('#editor1').clear().type(left);
-    cy.get('#editor2').clear().type(right);
+    cy.visit('#/');
+    cy.get('#editor1').clear().type(left, { delay: 200 }); // 200ms between keystrokes
+    cy.get('#editor2').clear().type(right, { delay: 200 });
 
     cy.contains('button', 'Compare').click();
     cy.get('#diffeditor').should('be.visible');
