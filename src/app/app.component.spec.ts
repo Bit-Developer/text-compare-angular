@@ -17,6 +17,6 @@ describe('AppComponent', () => {
   it('should have as title app', waitForAsync(async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance as AppComponent;
-    await expect(app.title).toEqual('app');
+    await expect(app.title).toEqual('Text Compare');
   }));
 });
