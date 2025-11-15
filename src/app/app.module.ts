@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -31,7 +30,7 @@ import { environment } from '../environments/environment';
       baseUrl: environment.monacoBaseUrl
     })
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: environment.baseHref }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

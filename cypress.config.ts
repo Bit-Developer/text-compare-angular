@@ -6,6 +6,7 @@ const config: any = {
     videosFolder: 'cypress/videos',
     downloadsFolder: 'cypress/downloads',
     baseUrl: 'https://text-compare.netlify.app',
+    pageLoadTimeout: 120000, // 2 minutes
     setupNodeEvents(on, cfg) {
       // keep default behavior; add plugins here if needed
       return cfg;
