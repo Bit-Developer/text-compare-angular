@@ -6,7 +6,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - deploy-with-single-action
   workflow_dispatch:
 
 jobs:
