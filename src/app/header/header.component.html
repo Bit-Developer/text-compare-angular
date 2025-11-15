@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Links -->
-  <ul class="navbar-nav">
+  <ul class="navbar-nav" *ngIf="envName==='Netlify'">
+    <li [ngClass]="{ 'nav-item': true, active: router.url === '/' }">
+      <a class="nav-link nav-home" routerLink="/">Text Compare</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav" *ngIf="envName!=='Netlify'">
     <li [ngClass]="{ 'nav-item': true, active: router.url === '/' }">
       <a class="nav-link nav-home" routerLink="/">Home</a>
     </li>
