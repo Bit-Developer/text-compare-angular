@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +13,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 // routes
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,10 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AppRoutingModule,
     MonacoEditorModule.forRoot({
-      baseUrl: '/text-compare-angular/assets/monaco/min/vs'
+      baseUrl: environment.monacoBaseUrl
     })
   ],
-  providers: [],
+  providers: [{ provide: APP_BASE_HREF, useValue: environment.baseHref }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

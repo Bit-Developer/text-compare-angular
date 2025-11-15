@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  env_name: 'Nas'
+  envName: 'Nas',
+  baseHref: '/',
+  monacoBaseUrl: '/assets/monaco/min/vs'
 };

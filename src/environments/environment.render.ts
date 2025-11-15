@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  env_name: 'Render'
+  envName: 'Render',
+  baseHref: '/',
+  monacoBaseUrl: '/assets/monaco/min/vs'
 };
