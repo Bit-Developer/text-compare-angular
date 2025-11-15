@@ -26,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AppRoutingModule,
     MonacoEditorModule.forRoot({
-      baseUrl: '/text-compare-angular/assets/monaco'
+      baseUrl: '/text-compare-angular/assets/monaco/min/vs'
     })
   ],
   providers: [],
