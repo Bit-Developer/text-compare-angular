@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 // routes
-import { appRoutes } from './app.route';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { appRoutes } from './app.route';
   imports: [
     BrowserModule,
     FormsModule,
-    MonacoEditorModule.forRoot(),
-    RouterModule.forRoot(appRoutes, {})
+    AppRoutingModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
