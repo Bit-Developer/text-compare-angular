@@ -63,7 +63,7 @@
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "express": "^4.17.2",
+    "express": "^4.22.1",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.4.2",
