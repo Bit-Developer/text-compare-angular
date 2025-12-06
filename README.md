@@ -14,6 +14,7 @@ This app can determine the different content for the given 'Original Text' and '
 
 # Technology
 
+* Node Version: v20.19.5
 * Frontend Framework: Angular
 * Styling: bootstrap
 * Text Editor: ngx-monaco-editor-v2
@@ -28,6 +29,13 @@ Three available demos:
 * `Live Demo on GitHub Page:` <a href="https://bit-developer.github.io/text-compare-angular/" target="\_blank">https://bit-developer.github.io/text-compare-angular/</a>
 
 *Note: The demo websites may be slow when you access them for the first time. Be patient!*
+
+## Cloud Services
+
+- https://app.netlify.com/
+- https://dashboard.render.com/
+- https://portal.azure.com/
+- https://dev.azure.com/
 
 # Setup Locally
 ```bash

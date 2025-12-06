@@ -1,4 +1,5 @@
 # Node.js with Angular - staged pipeline (best-practice: npm ci per stage + npm cache)
+# https://dev.azure.com/jojozhuang0911/portfolios/_build?definitionId=1
 trigger:
 - main
 
